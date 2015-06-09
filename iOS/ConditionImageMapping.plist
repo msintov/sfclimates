@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>light drizzle</key>
+	<string>condRain</string>
+	<key>drizzle</key>
+	<string>condRain</string>
+	<key>heavy drizzle</key>
+	<string>condRain</string>
+	<key>light rain</key>
+	<string>condRain</string>
+	<key>rain</key>
+	<string>condRain</string>
+	<key>heavy rain</key>
+	<string>condRain</string>
+	<key>light snow</key>
+	<string>condRain</string>
+	<key>snow</key>
+	<string>condRain</string>
+	<key>heavy snow</key>
+	<string>condRain</string>
+	<key>light snow grains</key>
+	<string>condRain</string>
+	<key>snow grains</key>
+	<string>condRain</string>
+	<key>heavy snow grains</key>
+	<string>condRain</string>
+	<key>light ice crystals</key>
+	<string>condRain</string>
+	<key>ice crystals</key>
+	<string>condRain</string>
+	<key>heavy ice crystals</key>
+	<string>condRain</string>
+	<key>light ice pellets</key>
+	<string>condRain</string>
+	<key>ice pellets</key>
+	<string>condRain</string>
+	<key>heavy ice pellets</key>
+	<string>condRain</string>
+	<key>light hail</key>
+	<string>condRain</string>
+	<key>hail</key>
+	<string>condRain</string>
+	<key>heavy hail</key>
+	<string>condRain</string>
+	<key>light mist</key>
+	<string>condRain</string>
+	<key>mist</key>
+	<string>condRain</string>
+	<key>heavy mist</key>
+	<string>condRain</string>
+	<key>light fog</key>
+	<string>condCloud</string>
+	<key>fog</key>
+	<string>condCloud</string>
+	<key>heavy fog</key>
+	<string>condCloud</string>
+	<key>light spray</key>
+	<string>condRain</string>
+	<key>spray</key>
+	<string>condRain</string>
+	<key>heavy spray</key>
+	<string>condRain</string>
+	<key>light rain mist</key>
+	<string>condRain</string>
+	<key>rain mist</key>
+	<string>condRain</string>
+	<key>heavy rain mist</key>
+	<string>condRain</string>
+	<key>light rain showers</key>
+	<string>condRain</string>
+	<key>rain showers</key>
+	<string>condRain</string>
+	<key>heavy rain showers</key>
+	<string>condRain</string>
+	<key>light snow showers</key>
+	<string>condRain</string>
+	<key>snow showers</key>
+	<string>condRain</string>
+	<key>heavy snow showers</key>
+	<string>condRain</string>
+	<key>light ice pellet showers</key>
+	<string>condRain</string>
+	<key>ice pellet showers</key>
+	<string>condRain</string>
+	<key>heavy ice pellet showers</key>
+	<string>condRain</string>
+	<key>light hail showers</key>
+	<string>condRain</string>
+	<key>hail showers</key>
+	<string>condRain</string>
+	<key>heavy hail showers</key>
+	<string>condRain</string>
+	<key>light small hail showers</key>
+	<string>condRain</string>
+	<key>small hail showers</key>
+	<string>condRain</string>
+	<key>heavy small hail showers</key>
+	<string>condRain</string>
+	<key>light thunderstorm</key>
+	<string>condThunder</string>
+	<key>thunderstorm</key>
+	<string>condThunder</string>
+	<key>heavy thunderstorm</key>
+	<string>condThunder</string>
+	<key>light thunderstorms and rain</key>
+	<string>condThunder</string>
+	<key>thunderstorms and rain</key>
+	<string>condThunder</string>
+	<key>heavy thunderstorms and rain</key>
+	<string>condThunder</string>
+	<key>light thunderstorms and snow</key>
+	<string>condThunder</string>
+	<key>thunderstorms and snow</key>
+	<string>condThunder</string>
+	<key>heavy thunderstorms and snow</key>
+	<string>condThunder</string>
+	<key>light thunderstorms and ice pellets</key>
+	<string>condThunder</string>
+	<key>thunderstorms and ice pellets</key>
+	<string>condThunder</string>
+	<key>heavy thunderstorms and ice pellets</key>
+	<string>condThunder</string>
+	<key>light thunderstorms with hail</key>
+	<string>condThunder</string>
+	<key>thunderstorms with hail</key>
+	<string>condThunder</string>
+	<key>heavy thunderstorms with hail</key>
+	<string>condThunder</string>
+	<key>light thunderstorms with small hail</key>
+	<string>condThunder</string>
+	<key>thunderstorms with small hail</key>
+	<string>condThunder</string>
+	<key>heavy thunderstorms with small hail</key>
+	<string>condThunder</string>
+	<key>light freezing drizzle</key>
+	<string>condRain</string>
+	<key>freezing drizzle</key>
+	<string>condRain</string>
+	<key>heavy freezing drizzle</key>
+	<string>condRain</string>
+	<key>light freezing rain</key>
+	<string>condRain</string>
+	<key>freezing rain</key>
+	<string>condRain</string>
+	<key>heavy freezing rain</key>
+	<string>condRain</string>
+	<key>light freezing fog</key>
+	<string>condCloud</string>
+	<key>freezing fog</key>
+	<string>condCloud</string>
+	<key>heavy freezing fog</key>
+	<string>condCloud</string>
+	<key>overcast</key>
+	<string>condCloud</string>
+	<key>clear night</key>
+	<string>condMoon</string>
+	<key>clear day</key>
+	<string>condSun</string>
+	<key>partly cloudy night</key>
+	<string>condPartlyCloudyNight</string>
+	<key>partly cloudy day</key>
+	<string>condPartlyCloudyDay</string>
+	<key>mostly cloudy night</key>
+	<string>condMostlyCloudyNight</string>
+	<key>mostly cloudy day</key>
+	<string>condMostlyCloudyDay</string>
+	<key>scattered clouds night</key>
+	<string>condScatteredCloudsNight</string>
+	<key>scattered clouds day</key>
+	<string>condScatteredCloudsDay</string>
+	<key>chance of flurries</key>
+	<string>condRain</string>
+	<key>chance of rain</key>
+	<string>condRain</string>
+	<key>chance of freezing rain</key>
+	<string>condRain</string>
+	<key>chance of sleet</key>
+	<string>condRain</string>
+	<key>chance of snow</key>
+	<string>condRain</string>
+	<key>chance of thunderstorms</key>
+	<string>condThunder</string>
+	<key>chance of a thunderstorm</key>
+	<string>condThunder</string>
+	<key>cloudy</key>
+	<string>condCloud</string>
+	<key>flurries</key>
+	<string>condRain</string>
+	<key>haze</key>
+	<string>condSun</string>
+	<key>mostly sunny</key>
+	<string>condSun</string>
+	<key>partly sunny</key>
+	<string>condScatteredCloudsDay</string>
+	<key>sunny</key>
+	<string>condSun</string>
+	<key>sleet</key>
+	<string>condRain</string>
+	<key>thunderstorms</key>
+	<string>condThunder</string>
+</dict>
+</plist>

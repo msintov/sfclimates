@@ -1,0 +1,24 @@
+//
+// Prefix header for all source files of the 'sfmcs' target in the 'sfmcs' project
+//
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iPhone SDK 3.0 and later."
+#endif
+
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+    #import <CoreData/CoreData.h>
+#endif
+
+#ifdef DEBUG
+#	define DLog(fmt, ...) NSLog((@"[line %d] %s " fmt), __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__);
+#else
+#	define DLog(...)
+#endif
+
+// ALog always displays output regardless of the DEBUG setting
+#define ALog(fmt, ...) DLog((@"[line %d] %s " fmt), __LINE__, __PRETTY_FUNCTION__, ##__VA_ARGS__);

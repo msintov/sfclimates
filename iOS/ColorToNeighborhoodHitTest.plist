@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FF0000</key>
+	<string>Financial District</string>
+	<key>FFFF00</key>
+	<string>North Beach</string>
+	<key>0000FF</key>
+	<string>Hayes Valley</string>
+	<key>F15A24</key>
+	<string>Outer Richmond</string>
+	<key>603813</key>
+	<string>Inner Richmond</string>
+	<key>F7931E</key>
+	<string>Outer Sunset</string>
+	<key>8CC63F</key>
+	<string>Cole Valley</string>
+	<key>FBB03B</key>
+	<string>Lake Merced</string>
+	<key>006837</key>
+	<string>Castro</string>
+	<key>662D91</key>
+	<string>Bayview</string>
+	<key>00FFFF</key>
+	<string>Potrero Hill</string>
+	<key>00FF00</key>
+	<string>SOMA</string>
+	<key>22B573</key>
+	<string>Noe Valley</string>
+	<key>FF00FF</key>
+	<string>Glen Park</string>
+	<key>D9E021</key>
+	<string>West Portal</string>
+	<key>39B54A</key>
+	<string>Mission</string>
+	<key>29ABE2</key>
+	<string>Twin Peaks</string>
+	<key>000000</key>
+	<string>Presidio</string>
+</dict>
+</plist>
