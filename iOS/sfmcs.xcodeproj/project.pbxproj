@@ -88,6 +88,7 @@
 		8E7FA07F1A6A598800993728 /* Neighborhood.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FA07E1A6A598800993728 /* Neighborhood.m */; };
 		8EA821651A6AE0F8001DBB3D /* NSDate+Formatters.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA821641A6AE0F8001DBB3D /* NSDate+Formatters.m */; };
 		8EB6E1D91A6A61FB0015BB93 /* Observation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6E1D81A6A61FB0015BB93 /* Observation.m */; };
+		8EC1B1241A6B894900FA5C90 /* WeatherDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC1B1231A6B894900FA5C90 /* WeatherDataLoader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -195,6 +196,8 @@
 		8EA821641A6AE0F8001DBB3D /* NSDate+Formatters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formatters.m"; sourceTree = "<group>"; };
 		8EB6E1D71A6A61FB0015BB93 /* Observation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observation.h; sourceTree = "<group>"; };
 		8EB6E1D81A6A61FB0015BB93 /* Observation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Observation.m; sourceTree = "<group>"; };
+		8EC1B1221A6B894900FA5C90 /* WeatherDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDataLoader.h; sourceTree = "<group>"; };
+		8EC1B1231A6B894900FA5C90 /* WeatherDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDataLoader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +243,8 @@
 				8E13B1B71A6B7E1800124F63 /* NSDictionary+JSONHelpers.m */,
 				8E13B1B91A6B809A00124F63 /* Forecast.h */,
 				8E13B1BA1A6B809A00124F63 /* Forecast.m */,
+				8EC1B1221A6B894900FA5C90 /* WeatherDataLoader.h */,
+				8EC1B1231A6B894900FA5C90 /* WeatherDataLoader.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -537,6 +542,7 @@
 				806479E91423B6F900A7F65B /* CityViewController.m in Sources */,
 				807F6FBB143CC975003215C6 /* UtilityMethods.m in Sources */,
 				8008B91314ED867300F4E7C3 /* CityTableViewController.m in Sources */,
+				8EC1B1241A6B894900FA5C90 /* WeatherDataLoader.m in Sources */,
 				80699B3114ED93CB003A3BDF /* SegmentsController.m in Sources */,
 				80699B4F14F419D3003A3BDF /* SettingsViewController.m in Sources */,
 				8087AE6A14F5A0390027AD23 /* WeatherDataModel.m in Sources */,

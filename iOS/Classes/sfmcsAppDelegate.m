@@ -23,12 +23,6 @@
 
 @implementation sfmcsAppDelegate
 
-@synthesize window;
-@synthesize navigationController;
-@synthesize segmentsController;
-@synthesize segmentedControl;
-@synthesize weatherDataModel;
-
 #pragma mark -
 #pragma mark Application lifecycle
 
@@ -39,6 +33,13 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    _weatherDataLoader = [[WeatherDataLoader alloc] init];
+    _weatherDataModel = [_weatherDataLoader loadCachedWeatherData];
+    if (!_weatherDataModel)
+    {
+        _weatherDataModel = [[WeatherDataModel alloc] init];
+    }
+    
     // Set up segmented control.
     CityViewController *cityViewController = [[CityViewController alloc] init];
     [cityViewController setWeatherDataModel:self.weatherDataModel];
@@ -64,9 +65,9 @@
     
     [self firstUserExperience];
     
-    window.rootViewController = self.navigationController;
+    _window.rootViewController = self.navigationController;
 
-	[window addSubview:self.navigationController.view];
+	[_window addSubview:self.navigationController.view];
 	[self.window makeKeyAndVisible];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -77,14 +78,6 @@
     return YES;
 }
 
-- (WeatherDataModel*)weatherDataModel
-{
-	if (!weatherDataModel) {
-		weatherDataModel = [[WeatherDataModel alloc] init];
-	}
-	return weatherDataModel;
-}
-
 - (void)requestServerData
 {
 	// Request latest weather data on our server. Actual request will run asynchronously.
@@ -93,24 +86,26 @@
 	// we will use the data we cached in the plist on the previous run of the app.
 	//
 	// If no property list is found, no data will be shown.
-    [self.weatherDataModel downloadWeatherDataWithCompletionHandler:^(NSError *error) {
+    [_weatherDataLoader downloadWeatherDataWithCompletionHandler:^(NSError *error, WeatherDataModel *newModel) {
         if (error != nil)
         {
-            numConsecutiveNetworkRequestFailures++;
+            _numConsecutiveNetworkRequestFailures++;
             
             // Try again but with exponential backoff.
-            [self scheduleNetworkRequest:((1+((numConsecutiveNetworkRequestFailures - 1) * 2))*60)];
+            [self scheduleNetworkRequest:((1+((_numConsecutiveNetworkRequestFailures - 1) * 2))*60)];
         }
         else
         {
+            _weatherDataModel = newModel;
+
             // Tell the visible view controller to update its view, since we have new data.
             id <RequestRedrawDelegate> delegate = (id)self.navigationController.visibleViewController;
             [delegate drawNewData];
             
-            numConsecutiveNetworkRequestFailures = 0;
+            _numConsecutiveNetworkRequestFailures = 0;
             
             // Retrieve next time to retrieve weather data and schedule the timer.
-            NSTimeInterval timeOfNextPullInSecondsFromNow = [[weatherDataModel timeOfNextPull] timeIntervalSinceNow];
+            NSTimeInterval timeOfNextPullInSecondsFromNow = [[_weatherDataModel timeOfNextPull] timeIntervalSinceNow];
             
             [self scheduleNetworkRequest:timeOfNextPullInSecondsFromNow];
         }
@@ -125,7 +120,7 @@
 		return;
 	}
     			  
-	networkRequestTimer = [NSTimer scheduledTimerWithTimeInterval:timeOfNextPullInSecondsFromNow target:self selector:@selector(requestServerData) userInfo:nil repeats:NO];
+	_networkRequestTimer = [NSTimer scheduledTimerWithTimeInterval:timeOfNextPullInSecondsFromNow target:self selector:@selector(requestServerData) userInfo:nil repeats:NO];
 }
 
 - (void)showSettings
@@ -137,8 +132,8 @@
 
 - (void)invalidateTimer
 {
-	[networkRequestTimer invalidate];
-    networkRequestTimer = nil;
+	[_networkRequestTimer invalidate];
+    _networkRequestTimer = nil;
 }
 
 - (void)firstUserExperience

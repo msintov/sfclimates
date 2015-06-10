@@ -11,17 +11,13 @@
 #import "Observation.h"
 #import "Forecast.h"
 
-@interface WeatherDataModel : NSObject {
- @private
-    BOOL _downloadInProgress;
-    NSString *pathToWeatherDataPlist;
-}
+@interface WeatherDataModel : NSObject
 
 @property (nonatomic, retain) NSDate *timeOfLastUpdate;
 @property (nonatomic, retain) NSDate *timeOfNextPull;
 @property (nonatomic) BOOL loaded;
 
-- (void)downloadWeatherDataWithCompletionHandler:(void (^)(NSError *))completionHandler;
+- (id)initWithJSON:(NSDictionary*)weatherDict;
 - (NSArray*)neighborhoods;
 - (NSArray*)observations;
 - (Observation*)observationForNeighborhood:(NSString*)name;

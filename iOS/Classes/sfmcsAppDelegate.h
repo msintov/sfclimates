@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "WeatherDataModel.h"
+#import "WeatherDataLoader.h"
 #import "CityViewController.h"
 #import "SegmentsController.h"
 
 @interface sfmcsAppDelegate : NSObject <UIApplicationDelegate, ShowSettings> {
-	WeatherDataModel *weatherDataModel;
-	NSTimer *networkRequestTimer;
-	int numConsecutiveNetworkRequestFailures;
+    WeatherDataLoader *_weatherDataLoader;
+	WeatherDataModel  *_weatherDataModel;
+	NSTimer           *_networkRequestTimer;
+	int                _numConsecutiveNetworkRequestFailures;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
