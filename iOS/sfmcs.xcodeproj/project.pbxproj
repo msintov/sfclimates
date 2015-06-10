@@ -83,6 +83,7 @@
 		80BC1E9214169F700048BA5B /* NeighborhoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BC1E9014169F700048BA5B /* NeighborhoodViewController.m */; };
 		80CB25A815A37A2300022A0C /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CB25A715A37A2300022A0C /* 01-refresh.png */; };
 		8E64444A1A68F26400F47988 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E6444491A68F26400F47988 /* Default-568h@2x.png */; };
+		8E7FA07F1A6A598800993728 /* Neighborhood.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FA07E1A6A598800993728 /* Neighborhood.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +181,8 @@
 		80CB25A715A37A2300022A0C /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "01-refresh.png"; path = "Images/01-refresh.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* sfmcs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sfmcs-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		8E6444491A68F26400F47988 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = "<group>"; };
+		8E7FA07D1A6A595B00993728 /* Neighborhood.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Neighborhood.h; sourceTree = "<group>"; };
+		8E7FA07E1A6A598800993728 /* Neighborhood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Neighborhood.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +218,8 @@
 				807F6FBA143CC975003215C6 /* UtilityMethods.m */,
 				8087AE6814F5A0390027AD23 /* WeatherDataModel.h */,
 				8087AE6914F5A0390027AD23 /* WeatherDataModel.m */,
+				8E7FA07D1A6A595B00993728 /* Neighborhood.h */,
+				8E7FA07E1A6A598800993728 /* Neighborhood.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -380,7 +385,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0610;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = 4HLALV5396;
@@ -496,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				8E7FA07F1A6A598800993728 /* Neighborhood.m in Sources */,
 				1D3623260D0F684500981E51 /* sfmcsAppDelegate.m in Sources */,
 				80BC1E8414169EF30048BA5B /* NSObject+SBJSON.m in Sources */,
 				80BC1E8514169EF30048BA5B /* NSString+SBJSON.m in Sources */,
@@ -520,10 +526,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: mike richards (82YKEM5NP6)";
@@ -544,10 +546,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Baker Beach Software, LLC";
@@ -568,13 +566,12 @@
 		8008B90A14ECCC8200F4E7C3 /* Ad Hoc Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Baker Beach Software, LLC";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "652BDA78-F460-46A4-BB78-4F56B383CDEF";
 				SDKROOT = iphoneos;
@@ -585,10 +582,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Baker Beach Software, LLC";
@@ -609,14 +602,14 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michelle Sintov (8UPT38RGLF)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "DEBUG=1";
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E9AAFB7A-626B-423F-9BA0-7C6A099DE189";
 				SDKROOT = iphoneos;
 			};
@@ -625,13 +618,12 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Baker Beach Software, LLC";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "652BDA78-F460-46A4-BB78-4F56B383CDEF";
 				SDKROOT = iphoneos;

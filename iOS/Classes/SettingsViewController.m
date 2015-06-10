@@ -51,7 +51,7 @@
 
 - (IBAction)degreesChanged:(id)sender
 {
-    int index = [self.degreesControl selectedSegmentIndex];
+    NSInteger index = [self.degreesControl selectedSegmentIndex];
     [[UtilityMethods sharedInstance] setCelsiusMode:(index == 1)];    
 }
 

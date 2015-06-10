@@ -24,14 +24,6 @@
 @synthesize dictOfCurrentWeatherForNeighborhood;
 @synthesize arrayOfForecastsForNeighborhood;
 
-- (void)dealloc
-{
-    self.weatherDataModel = nil;
-    self.neighborhoodName = nil;
-    self.dictOfCurrentWeatherForNeighborhood = nil;
-    self.arrayOfForecastsForNeighborhood = nil;
-}
-
 - (void)refreshInstanceData
 {
     NSDictionary *weatherDict = weatherDataModel.weatherDict;

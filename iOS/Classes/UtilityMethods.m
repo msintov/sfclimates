@@ -146,7 +146,7 @@ static UtilityMethods *sharedUtilityMethodsInstance = nil;
 		NSInteger hours = [components hour];
 		NSInteger minutes = [components minute];
 		
-		int currentSecondsSinceMidnight = ((hours*60)+minutes)*60 + seconds;
+		NSInteger currentSecondsSinceMidnight = ((hours*60)+minutes)*60 + seconds;
 		if (currentSecondsSinceMidnight < sunriseInSecondsSinceMidnight || currentSecondsSinceMidnight > sunsetInSecondsSinceMidnight) isNight = YES;
 	}
 	return isNight;

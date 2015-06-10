@@ -7,11 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@protocol WeatherDataConnectionDelegate
-- (void)weatherDataConnectionDidFinishLoading;
-- (void)weatherDataConnectionDidFail;
-@end
+#import "Neighborhood.h"
 
 @interface WeatherDataModel : NSObject {
  @private
@@ -19,9 +15,10 @@
     NSString *pathToWeatherDataPlist;
 }
 
-@property (nonatomic, assign) id <WeatherDataConnectionDelegate> weatherDataConnectionDelegate;
 @property (nonatomic, retain) NSDictionary *weatherDict;
 
 - (void)downloadWeatherDataWithCompletionHandler:(void (^)(NSError *))completionHandler;
+- (NSDate*)timeOfLastUpdate;
+- (NSArray*)neighborhoods;
 
 @end

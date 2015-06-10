@@ -18,7 +18,7 @@
     NSURLSession *_urlSession;
 }
 
-@synthesize pathToWeatherDataPlist, weatherDataConnectionDelegate, weatherDict;
+@synthesize pathToWeatherDataPlist, weatherDict;
 
 - (id)init
 {
@@ -106,4 +106,35 @@
     [task resume];
 }
 
+- (NSDate*)timeOfLastUpdate
+{
+    if (weatherDict)
+    {
+        return [NSDate dateWithTimeIntervalSince1970:[[weatherDict objectForKey:@"timeOfLastUpdate"] doubleValue]];
+    }
+    else
+    {
+        return nil;
+    }
+}
+
+- (NSArray*)neighborhoods
+{
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    NSArray *jsonArray = [weatherDict objectForKey:@"neighborhoods"];
+    for (NSDictionary *jsonRecord in jsonArray)
+    {
+        NSString *name = [jsonRecord objectForKey:@"name"];
+        
+        CGRect rect = CGRectMake([[jsonRecord objectForKey:@"x"] doubleValue],
+                                 [[jsonRecord objectForKey:@"y"] doubleValue],
+                                 [[jsonRecord objectForKey:@"width"] doubleValue],
+                                 [[jsonRecord objectForKey:@"height"] doubleValue]);
+        
+        [result addObject:[[Neighborhood alloc] initWithName:name rect:rect]];
+    }
+    return result;
+}
+
 @end
+

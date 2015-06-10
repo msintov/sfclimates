@@ -16,12 +16,6 @@
 @synthesize cityTableViewCell;
 @synthesize settingsDelegate;
 
-- (void)dealloc {
-    self.weatherDataModel = nil;
-    self.sections = nil;
-    self.settingsDelegate = nil;
-}
-
 /*- (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.

@@ -7,6 +7,7 @@
 //
 
 #import "CityViewController.h"
+#import "Neighborhood.h"
 #import "NeighborhoodViewController.h"
 
 #define ZOOM_STEP 1.5
@@ -74,7 +75,8 @@
     nameToCondViewDict = nil;
 }
 
-- (void)drawNewData {
+- (void)drawNewData
+{
     NSDictionary *weatherDict = weatherDataModel.weatherDict;
 	if (!weatherDict)
     {
@@ -89,15 +91,12 @@
 
         CGSize tempTextSize = [@"88º" sizeWithAttributes:tempFontAttributes];
 
-        NSArray *neighborhoodsArray = [weatherDict objectForKey:@"neighborhoods"];
-        for (NSDictionary *neighborhood in neighborhoodsArray)
+        NSArray *neighborhoodsArray = [weatherDataModel neighborhoods];
+        for (Neighborhood *neighborhood in neighborhoodsArray)
         {
-            NSString *name = [neighborhood objectForKey:@"name"];
+            NSString *name = [neighborhood name];
+            CGRect condRect = [neighborhood rect];
 
-            CGRect condRect = CGRectMake([[neighborhood objectForKey:@"x"] doubleValue],
-                                         [[neighborhood objectForKey:@"y"] doubleValue],
-                                         [[neighborhood objectForKey:@"width"] doubleValue],
-                                         [[neighborhood objectForKey:@"height"] doubleValue]);
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:condRect];
             [cityMapImageView addSubview:imageView];
             [nameToCondViewDict setObject:imageView forKey:name];
@@ -171,8 +170,7 @@
         }
     }
 
-	NSDate *date = [NSDate dateWithTimeIntervalSince1970:[[weatherDict objectForKey:@"timeOfLastUpdate"] doubleValue]];
-	lastUpdated.text =  [[UtilityMethods sharedInstance] getFormattedDate:date prependString:@"Updated "];
+	lastUpdated.text = [[UtilityMethods sharedInstance] getFormattedDate:[weatherDataModel timeOfLastUpdate] prependString:@"Updated "];
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer*)sender
@@ -245,10 +243,6 @@
 
 - (CGContextRef) newARGBBitmapContextFromImage:(CGImageRef)inImage
 {
-	CGContextRef    context = NULL;
-	CGColorSpaceRef colorSpace;
-	int             bitmapBytesPerRow;
-	
 	// Get image width, height. We'll use the entire image.
 	size_t pixelsWide = CGImageGetWidth(inImage);
 	size_t pixelsHigh = CGImageGetHeight(inImage);
@@ -256,23 +250,23 @@
 	// Declare the number of bytes per row. Each pixel in the bitmap in this
 	// example is represented by 4 bytes; 8 bits each of red, green, blue, and
 	// alpha.
-	bitmapBytesPerRow = (pixelsWide * 4);
+	size_t bitmapBytesPerRow = (pixelsWide * 4);
 	
 	// Use the generic RGB color space.
-	colorSpace = CGColorSpaceCreateDeviceRGB();
+	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 	if (colorSpace == NULL) return NULL;
 	
 	// Create the bitmap context. We want pre-multiplied ARGB, 8-bits
 	// per component. Regardless of what the source image format is
 	// (CMYK, Grayscale, and so on) it will be converted over to the format
 	// specified here by CGBitmapContextCreate.
-	context = CGBitmapContextCreate (NULL,
-									 pixelsWide,
-									 pixelsHigh,
-									 8,      // bits per component
-									 bitmapBytesPerRow,
-									 colorSpace,
-									 kCGImageAlphaPremultipliedFirst);
+	CGContextRef context = CGBitmapContextCreate (NULL,
+                                                  pixelsWide,
+                                                  pixelsHigh,
+                                                  8,      // bits per component
+                                                  bitmapBytesPerRow,
+                                                  colorSpace,
+                                                  kCGImageAlphaPremultipliedFirst);
 
 	if (context == NULL) DLog(@"Context not created!");
 	
