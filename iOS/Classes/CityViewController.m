@@ -10,6 +10,7 @@
 #import "Neighborhood.h"
 #import "NeighborhoodViewController.h"
 #import "NSDate+Formatters.h"
+#import "Constants.h"
 
 #define ZOOM_STEP 1.5
 
@@ -23,8 +24,8 @@
 
 @implementation CityViewController
 {
-    NSDictionary *tempFontAttributes;
-    NSDictionary *labelFontAttributes;
+    NSDictionary *_tempFontAttributes;
+    NSDictionary *_labelFontAttributes;
     id<NSObject> _modelObserver;
 }
 
@@ -41,11 +42,11 @@
 	UITapGestureRecognizer *tapgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
 	[self.view addGestureRecognizer:tapgr];
 
-    labelFontAttributes = @{
+    _labelFontAttributes = @{
         NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:10.0],
         NSForegroundColorAttributeName: [UIColor colorWithWhite: 0.70 alpha:1]
     };
-    tempFontAttributes = @{
+    _tempFontAttributes = @{
         NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0],
         NSForegroundColorAttributeName: [UIColor colorWithWhite: 1.0 alpha:1]
     };
@@ -88,7 +89,7 @@
         nameToCondViewDict = [[NSMutableDictionary alloc] init];
         nameToTempViewDict = [[NSMutableDictionary alloc] init];
 
-        CGSize tempTextSize = [@"88º" sizeWithAttributes:tempFontAttributes];
+        CGSize tempTextSize = [@"88º" sizeWithAttributes:_tempFontAttributes];
 
         for (Neighborhood *neighborhood in neighborhoodsArray)
         {
@@ -99,14 +100,14 @@
             [_cityMapImageView addSubview:imageView];
             [nameToCondViewDict setObject:imageView forKey:name];
 
-            CGSize labelSize = [name sizeWithAttributes:labelFontAttributes];
+            CGSize labelSize = [name sizeWithAttributes:_labelFontAttributes];
             CGFloat centerX = condRect.origin.x+condRect.size.width/2;
             CGRect labelRect = CGRectMake(centerX-labelSize.width/2, condRect.origin.y+condRect.size.height*7/8,
                                           labelSize.width, labelSize.height);
             UILabel *label = [[UILabel alloc] initWithFrame:(CGRect)labelRect];
 
             NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:name
-                                                                                 attributes:labelFontAttributes];
+                                                                                 attributes:_labelFontAttributes];
             [label setAttributedText:attributedText];
             [_cityMapImageView addSubview:label];
 
@@ -116,7 +117,7 @@
             UILabel *tempLabel = [[UILabel alloc] initWithFrame:(CGRect)tempRect];
 
             NSAttributedString *tempAttributedText = [[NSAttributedString alloc] initWithString:@""
-                                                                                     attributes:tempFontAttributes];
+                                                                                     attributes:_tempFontAttributes];
             [tempLabel setAttributedText:tempAttributedText];
             [_cityMapImageView addSubview:tempLabel];
             [nameToTempViewDict setObject:tempLabel forKey:name];
@@ -153,7 +154,7 @@
             NSString *temperatureString = [[UtilityMethods sharedInstance] makeTemperatureString:tempInt showDegree:YES];
 
             CGFloat right = CGRectGetMaxX(tempLabel.frame);
-            tempLabel.attributedText = [[NSAttributedString alloc] initWithString:temperatureString attributes:tempFontAttributes];
+            tempLabel.attributedText = [[NSAttributedString alloc] initWithString:temperatureString attributes:_tempFontAttributes];
             [tempLabel sizeToFit];
 
             CGRect frame = tempLabel.frame;
@@ -185,7 +186,7 @@
     // If tap point is within the refresh button, refresh the data
     if (CGRectContainsPoint([self.refreshButton frame], [sender locationInView:self.view]))
     {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"downloadWeatherData"
+        [[NSNotificationCenter defaultCenter] postNotificationName:RequestRefreshNotificationName
                                                             object:self
                                                           userInfo:nil];
         return;

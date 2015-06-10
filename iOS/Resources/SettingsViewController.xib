@@ -56,6 +56,7 @@ Weather data provided by Weather Underground, Inc.</string>
                         <segment title="ºF"/>
                         <segment title="ºC"/>
                     </segments>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <action selector="degreesChanged:" destination="-1" eventType="valueChanged" id="22"/>
                     </connections>

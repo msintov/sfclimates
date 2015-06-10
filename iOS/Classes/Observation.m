@@ -7,6 +7,7 @@
 //
 
 #import "Observation.h"
+#import "NSDictionary+JSONHelpers.h"
 
 @implementation Observation
 
@@ -14,11 +15,11 @@
 {
     if (self = [super init])
     {
-        _name = [jsonRecord objectForKey:@"name"];
-        _temperature = [[jsonRecord objectForKey:@"current_temperature"] doubleValue];
-        _wind = [[jsonRecord objectForKey:@"current_wind"] doubleValue];
-        _windDirection = [[jsonRecord objectForKey:@"current_wind_direction"] doubleValue];
-        _condition = [jsonRecord objectForKey:@"current_condition"];
+        _name = [jsonRecord stringForKey:@"name"];
+        _temperature = [jsonRecord doubleForKey:@"current_temperature"];
+        _wind = [jsonRecord doubleForKey:@"current_wind"];
+        _windDirection = [jsonRecord doubleForKey:@"current_wind_direction"];
+        _condition = [jsonRecord stringForKey:@"current_condition"];
     }
     return self;
 }

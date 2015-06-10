@@ -10,6 +10,7 @@
 #import "CityTableViewController.h"
 #import "SettingsViewController.h"
 #import "UtilityMethods.h"
+#import "Constants.h"
 #import <stdlib.h>
 #import <time.h>
 
@@ -25,7 +26,6 @@
 
 #pragma mark -
 #pragma mark Application lifecycle
-
 
 - (void)dealloc
 {
@@ -47,7 +47,6 @@
     
     CityTableViewController *cityTableViewController = [[CityTableViewController alloc] init];
     [cityTableViewController setWeatherDataModel:self.weatherDataModel];
-    cityTableViewController.settingsDelegate = self;
     
     NSArray * viewControllers = [NSArray arrayWithObjects:cityViewController, cityTableViewController, nil];
     
@@ -72,7 +71,11 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(requestServerData)
-                                                 name:@"downloadWeatherData"
+                                                 name:RequestRefreshNotificationName
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showSettings)
+                                                 name:ShowSettingsNotificationName
                                                object:nil];
 
     return YES;

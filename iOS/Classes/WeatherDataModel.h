@@ -11,16 +11,14 @@
 #import "Observation.h"
 #import "Forecast.h"
 
-extern NSString *ModelChangedNotificationName;
-
 @interface WeatherDataModel : NSObject
 
-@property (nonatomic, retain) NSDate *timeOfLastUpdate;
-@property (nonatomic, retain) NSDate *timeOfNextPull;
+@property (nonatomic, readonly) NSDate *timeOfLastUpdate;
+@property (nonatomic, readonly) NSDate *timeOfNextPull;
+@property (nonatomic, readonly) BOOL isNight;
 
 - (id)initWithJSON:(NSDictionary*)weatherDict;
 - (NSArray*)neighborhoods;
 - (Neighborhood*)neighborhoodByName:(NSString*)name;
-- (BOOL)isNight;
 
 @end

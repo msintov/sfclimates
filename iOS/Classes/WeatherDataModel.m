@@ -10,8 +10,6 @@
 #import "JSON.h"
 #import "NSDictionary+JSONHelpers.h"
 
-NSString *ModelChangedNotificationName = @"com.bakerbeachsoftware.sfclimates.modelChanged";
-
 @implementation WeatherDataModel
 {
     NSDictionary *_neighborhoods;
@@ -79,6 +77,7 @@ NSString *ModelChangedNotificationName = @"com.bakerbeachsoftware.sfclimates.mod
             [neighborhoods setObject:neighborhood forKey:name];
         }
         _neighborhoods = neighborhoods;
+        _isNight = [self calcIsNight];
     }
     return self;
 }
@@ -93,7 +92,7 @@ NSString *ModelChangedNotificationName = @"com.bakerbeachsoftware.sfclimates.mod
     return [_neighborhoods objectForKey:name];
 }
 
--(BOOL)isNight
+-(BOOL)calcIsNight
 {
     // Determine the number of seconds since midnight of the current day according to the time on the phone.
     BOOL isNight = NO;

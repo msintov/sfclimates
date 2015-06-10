@@ -8,6 +8,7 @@
 
 #import "CityTableViewController.h"
 #import "NeighborhoodViewController.h"
+#import "Constants.h"
 
 @implementation CityTableViewController
 {
@@ -28,8 +29,8 @@
     [super viewDidLoad];
 
     // Add info button
-    UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight]; 
-    [infoButton addTarget:self.settingsDelegate action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
+    UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    [infoButton addTarget:self action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
 
     _modelObserver = [[NSNotificationCenter defaultCenter] addObserverForName:ModelChangedNotificationName
@@ -52,6 +53,11 @@
     [self drawNewData];
 
     [super viewWillAppear:animated];
+}
+
+- (void)showSettings
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:ShowSettingsNotificationName object:self];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -81,8 +87,6 @@
 
 - (void)drawNewData
 {
-	isNight = [_weatherDataModel isNight];
-    
     [self createTableSections];
 
     [self.view performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
@@ -123,7 +127,7 @@
 
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:3];
     [imageView setImage:[[UtilityMethods sharedInstance] getConditionImage:[observation condition]
-                                                               withIsNight:isNight
+                                                               withIsNight:[_weatherDataModel isNight]
                                                               withIconSize:mediumConditionIcon]];
 
     label = (UILabel *)[cell viewWithTag:4];

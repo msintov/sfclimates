@@ -92,6 +92,7 @@
 		8EA821651A6AE0F8001DBB3D /* NSDate+Formatters.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA821641A6AE0F8001DBB3D /* NSDate+Formatters.m */; };
 		8EB6E1D91A6A61FB0015BB93 /* Observation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6E1D81A6A61FB0015BB93 /* Observation.m */; };
 		8EC1B1241A6B894900FA5C90 /* WeatherDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC1B1231A6B894900FA5C90 /* WeatherDataLoader.m */; };
+		8EE3BF0D1A6CDC5D00D533BC /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE3BF0C1A6CDC5D00D533BC /* Constants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +217,8 @@
 		8EB6E1D81A6A61FB0015BB93 /* Observation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Observation.m; sourceTree = "<group>"; };
 		8EC1B1221A6B894900FA5C90 /* WeatherDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherDataLoader.h; sourceTree = "<group>"; };
 		8EC1B1231A6B894900FA5C90 /* WeatherDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherDataLoader.m; sourceTree = "<group>"; };
+		8EE3BF0B1A6CDC5D00D533BC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		8EE3BF0C1A6CDC5D00D533BC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +273,8 @@
 				8E13B1BA1A6B809A00124F63 /* Forecast.m */,
 				8EC1B1221A6B894900FA5C90 /* WeatherDataLoader.h */,
 				8EC1B1231A6B894900FA5C90 /* WeatherDataLoader.m */,
+				8EE3BF0B1A6CDC5D00D533BC /* Constants.h */,
+				8EE3BF0C1A6CDC5D00D533BC /* Constants.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -613,6 +618,7 @@
 				80BC1E8714169EF30048BA5B /* SBJsonBase.m in Sources */,
 				80BC1E8814169EF30048BA5B /* SBJsonParser.m in Sources */,
 				8EB6E1D91A6A61FB0015BB93 /* Observation.m in Sources */,
+				8EE3BF0D1A6CDC5D00D533BC /* Constants.m in Sources */,
 				80BC1E8914169EF30048BA5B /* SBJsonWriter.m in Sources */,
 				8E13B1BB1A6B809A00124F63 /* Forecast.m in Sources */,
 				80BC1E9214169F700048BA5B /* NeighborhoodViewController.m in Sources */,
