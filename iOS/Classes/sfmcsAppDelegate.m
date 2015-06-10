@@ -110,9 +110,7 @@
             numConsecutiveNetworkRequestFailures = 0;
             
             // Retrieve next time to retrieve weather data and schedule the timer.
-            NSTimeInterval timeOfNextPullInSecondsSince1970 = [[self.weatherDataModel.weatherDict objectForKey:@"timeOfNextPull"] doubleValue];
-            NSDate *dateOfNextPullInGMT = [NSDate dateWithTimeIntervalSince1970:timeOfNextPullInSecondsSince1970];
-            NSTimeInterval timeOfNextPullInSecondsFromNow = [dateOfNextPullInGMT timeIntervalSinceNow];
+            NSTimeInterval timeOfNextPullInSecondsFromNow = [[weatherDataModel timeOfNextPull] timeIntervalSinceNow];
             
             [self scheduleNetworkRequest:timeOfNextPullInSecondsFromNow];
         }

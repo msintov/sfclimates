@@ -8,6 +8,7 @@
 
 #import "WeatherDataModel.h"
 #import "JSON.h"
+#import "NSDictionary+JSONHelpers.h"
 
 @interface WeatherDataModel()
 @property (nonatomic, readonly, retain) NSString *pathToWeatherDataPlist;
@@ -16,18 +17,29 @@
 @implementation WeatherDataModel
 {
     NSURLSession *_urlSession;
+    NSMutableArray *_neighborhoods;
+    NSMutableDictionary *_observations;
+    NSMutableDictionary *_forecasts;
+    int _sunriseInSecondsSinceMidnight;
+    int _sunsetInSecondsSinceMidnight;
 }
-
-@synthesize pathToWeatherDataPlist, weatherDict;
 
 - (id)init
 {
     if (self = [super init])
     {
-        self.weatherDict = [NSDictionary dictionaryWithContentsOfFile:[self pathToWeatherDataPlist]];
+        _neighborhoods = [[NSMutableArray alloc] init];
+        _observations  = [[NSMutableDictionary alloc] init];
+        _forecasts     = [[NSMutableDictionary alloc] init];
+
+        NSDictionary *weatherDict = [NSDictionary dictionaryWithContentsOfFile:[self pathToWeatherDataPlist]];
         
-        if (!self.weatherDict) {
+        if (!weatherDict) {
             DLog(@"Got nil weather dict. Either cached plist does not yet exist(such as upon first app launch), could not be opened, contents could not be parsed into an array, or other failure.");
+        }
+        else
+        {
+            [self parseWeatherData:weatherDict];
         }
         
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration ephemeralSessionConfiguration];
@@ -89,11 +101,13 @@
                                                     return;
                                                 }
                                                 
-                                                self.weatherDict = [stringFromServer JSONValue];
-                                                if (!self.weatherDict) return;
+                                                NSDictionary *weatherDict = [stringFromServer JSONValue];
+                                                if (!weatherDict) return;
+                                                
+                                                [self parseWeatherData:weatherDict];
                                                 
                                                 // Persist data to .plist file.
-                                                if (![self.weatherDict writeToFile:[self pathToWeatherDataPlist] atomically:YES])
+                                                if (![weatherDict writeToFile:[self pathToWeatherDataPlist] atomically:YES])
                                                 {
                                                     DLog(@"Failed to write server data to property list. Data from server was: %@", stringFromServer);
                                                     return;
@@ -106,70 +120,77 @@
     [task resume];
 }
 
-- (NSDate*)timeOfLastUpdate
+- (void)parseWeatherData:(NSDictionary*)weatherDict
 {
-    if (weatherDict)
+    _timeOfLastUpdate = [weatherDict dateForKey:@"timeOfLastUpdate"];
+    _timeOfNextPull   = [weatherDict dateForKey:@"timeOfNextPull"];
+
+    _sunriseInSecondsSinceMidnight = [weatherDict integerForKey:@"sunrise"];
+    _sunsetInSecondsSinceMidnight = [weatherDict integerForKey:@"sunset"];
+
+    _neighborhoods = [[NSMutableArray alloc] init];
+    for (NSDictionary *jsonRecord in [weatherDict arrayForKey:@"neighborhoods"])
     {
-        return [NSDate dateWithTimeIntervalSince1970:[[weatherDict objectForKey:@"timeOfLastUpdate"] doubleValue]];
+        NSString *name = [jsonRecord stringForKey:@"name"];
+        
+        CGRect rect = CGRectMake([jsonRecord doubleForKey:@"x"],
+                                 [jsonRecord doubleForKey:@"y"],
+                                 [jsonRecord doubleForKey:@"width"],
+                                 [jsonRecord doubleForKey:@"height"]);
+        
+        [_neighborhoods addObject:[[Neighborhood alloc] initWithName:name rect:rect]];
     }
-    else
+
+    _observations = [[NSMutableDictionary alloc] init];
+    
+    for (NSDictionary *jsonRecord in [weatherDict arrayForKey:@"observations"])
     {
-        return nil;
+        Observation *observation = [[Observation alloc] initWithJSON:jsonRecord];
+        [_observations setObject:observation forKey:[observation name]];
     }
+
+    _forecasts = [[NSMutableDictionary alloc] init];
+    for (NSArray *jsonSubArray in [weatherDict arrayForKey:@"forecasts"])
+    {
+        for (NSDictionary *jsonRecord in jsonSubArray)
+        {
+            Forecast *forecast = [[Forecast alloc] initWithJSON:jsonRecord];
+            NSMutableArray *forecastsArray = [_forecasts objectForKey:[forecast name]];
+            if (!forecastsArray)
+            {
+                forecastsArray = [[NSMutableArray alloc] init];
+                [_forecasts setObject:forecastsArray forKey:[forecast name]];
+            }
+            [forecastsArray addObject:forecast];
+        }
+    }
+    
+    _loaded = YES;
 }
 
 - (NSArray*)neighborhoods
 {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    NSArray *jsonArray = [weatherDict objectForKey:@"neighborhoods"];
-    for (NSDictionary *jsonRecord in jsonArray)
-    {
-        NSString *name = [jsonRecord objectForKey:@"name"];
-        
-        CGRect rect = CGRectMake([[jsonRecord objectForKey:@"x"] doubleValue],
-                                 [[jsonRecord objectForKey:@"y"] doubleValue],
-                                 [[jsonRecord objectForKey:@"width"] doubleValue],
-                                 [[jsonRecord objectForKey:@"height"] doubleValue]);
-        
-        [result addObject:[[Neighborhood alloc] initWithName:name rect:rect]];
-    }
-    return result;
+    return _neighborhoods;
 }
 
 - (NSArray*)observations
 {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-
-    NSArray *jsonArray = [weatherDict objectForKey:@"observations"];
-
-    for (NSDictionary *jsonRecord in jsonArray)
-    {
-        [result addObject:[[Observation alloc] initWithJSON:jsonRecord]];
-    }
-    
-    return result;
+    return [_observations allValues];
 }
 
 - (Observation*)observationForNeighborhood:(NSString*)name
 {
-    // FIXME: make this not a linear scan for neighborhoodName.
-    NSArray *jsonArray = [weatherDict objectForKey:@"observations"];
-    for (NSDictionary *jsonRecord in jsonArray)
-    {
-        if ([name compare:[jsonRecord objectForKey:@"name"]] == NSOrderedSame)
-        {
-            return [[Observation alloc] initWithJSON:jsonRecord];
-        }
-    }
-    return nil;
+    return [_observations objectForKey:name];
+}
+
+- (NSArray*)forecastsForNeighborhood:(NSString*)name
+{
+    return [_forecasts objectForKey:name];
 }
 
 -(BOOL)isNight
 {
     // Determine the number of seconds since midnight of the current day according to the time on the phone.
-    int sunriseInSecondsSinceMidnight = [[weatherDict objectForKey:@"sunrise"] intValue];
-    int sunsetInSecondsSinceMidnight = [[weatherDict objectForKey:@"sunset"] intValue];
-    
     BOOL isNight = NO;
     
     NSTimeZone* pacificTimeZone = [NSTimeZone timeZoneWithName:@"America/Los_Angeles"];
@@ -184,7 +205,8 @@
         NSInteger minutes = [components minute];
         
         NSInteger currentSecondsSinceMidnight = ((hours*60)+minutes)*60 + seconds;
-        if (currentSecondsSinceMidnight < sunriseInSecondsSinceMidnight || currentSecondsSinceMidnight > sunsetInSecondsSinceMidnight) isNight = YES;
+        isNight = (currentSecondsSinceMidnight < _sunriseInSecondsSinceMidnight ||
+                   currentSecondsSinceMidnight > _sunsetInSecondsSinceMidnight);
     }
     return isNight;
 }

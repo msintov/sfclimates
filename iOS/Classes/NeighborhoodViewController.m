@@ -27,63 +27,47 @@
 
 - (void)refreshInstanceData
 {
-    NSDictionary *weatherDict = weatherDataModel.weatherDict;
-	if (!weatherDict) return;
+	if (!weatherDataModel.loaded) return;
 
     self.observation = [weatherDataModel observationForNeighborhood:neighborhoodName];
 
-	// FIXME: make this not a linear scan for neighborhoodName.
-	NSArray *forecastsNSArray = [weatherDict objectForKey:@"forecasts"];
-	for (NSArray *neighborhoodNSArray in forecastsNSArray)
-	{
-        // Get the first element in the array, which is a dict.
-        // Does that dict have the neighborhoodName we're looking for?
-        // If yes, break.
-        //
-        // First array element in arrayOfForecastsForNeighborhood is today's forecast (or older, if server is serving old data).
-        NSDictionary *dict = [neighborhoodNSArray objectAtIndex:0];
-		if ([neighborhoodName compare:[dict objectForKey:@"name"]] == NSOrderedSame)
-		{
-            NSRange rangeOfForecastDays;
-            rangeOfForecastDays.location = 0;
-            rangeOfForecastDays.length = [neighborhoodNSArray count];
-            
-            // Bandaid: the server could have old data where the first entry is for yesterday,
-            // but we want the first entry in arrayOfForecastsForNeighborhood to be today.
-            // We bump out by one day max.
-            //
-            // Retrieve the weekday name from the json.
-            NSDictionary *forecastDict = [neighborhoodNSArray objectAtIndex:0];
-            NSDate *date = [NSDate dateWithTimeIntervalSince1970:[[forecastDict objectForKey:@"epoch"] doubleValue]];
-            NSString *weekdayJSON = [date weekdayString];
-            
-            // Compute the current weekday name according to the device time.
-            NSString *weekdayDevice = [[NSDate date] weekdayString];
-            
-            // Bump the range up by one day if server data is indeed old.
-            if ([weekdayJSON localizedCaseInsensitiveCompare:weekdayDevice] != NSOrderedSame)
-            {
-                rangeOfForecastDays.location = rangeOfForecastDays.location + 1;
-                rangeOfForecastDays.length -= 1;
-            }
-            
-            // Don't display more than 7 days of forecast
-            if (rangeOfForecastDays.length > 7)
-            {
-                rangeOfForecastDays.length = 7;
-            }
+    NSArray *forecasts = [weatherDataModel forecastsForNeighborhood:neighborhoodName];
+    
+    NSRange rangeOfForecastDays;
+    rangeOfForecastDays.location = 0;
+    rangeOfForecastDays.length = [forecasts count];
+    
+    // Bandaid: the server could have old data where the first entry is for yesterday,
+    // but we want the first entry in arrayOfForecastsForNeighborhood to be today.
+    // We bump out by one day max.
+    //
+    // Retrieve the weekday name from the json.
+    Forecast *forecast = [forecasts objectAtIndex:0];
+    NSDate *date = [forecast date];
+    NSString *weekdayJSON = [date weekdayString];
+    
+    // Compute the current weekday name according to the device time.
+    NSString *weekdayDevice = [[NSDate date] weekdayString];
+    
+    // Bump the range up by one day if server data is indeed old.
+    if ([weekdayJSON localizedCaseInsensitiveCompare:weekdayDevice] != NSOrderedSame)
+    {
+        rangeOfForecastDays.location = rangeOfForecastDays.location + 1;
+        rangeOfForecastDays.length -= 1;
+    }
+    
+    // Don't display more than 7 days of forecast
+    if (rangeOfForecastDays.length > 7)
+    {
+        rangeOfForecastDays.length = 7;
+    }
 
-            @try {
-                self.arrayOfForecastsForNeighborhood = [neighborhoodNSArray subarrayWithRange:rangeOfForecastDays];
-            }
-            @catch (NSException *exception) {
-                DLog(@"In calling subarrayWithRange on arrayOfForecastsForNeighborhood: Caught %@: %@", [exception name], [exception reason]);
-            }
-
-			break;
-		}
-	}
-	return;
+    @try {
+        self.arrayOfForecastsForNeighborhood = [forecasts subarrayWithRange:rangeOfForecastDays];
+    }
+    @catch (NSException *exception) {
+        DLog(@"In calling subarrayWithRange on arrayOfForecastsForNeighborhood: Caught %@: %@", [exception name], [exception reason]);
+    }
 }
 
 - (void)viewDidLoad {
@@ -213,7 +197,7 @@
         self.forecastTableViewCell = nil;
     }
     
-    NSDictionary *forecastDict = [self.arrayOfForecastsForNeighborhood objectAtIndex:[indexPath row]];
+    Forecast *forecast = [self.arrayOfForecastsForNeighborhood objectAtIndex:[indexPath row]];
 
     // TAG 1: Weekday name
     //
@@ -225,16 +209,15 @@
     }
     else
     {
-        NSDate *date = [NSDate dateWithTimeIntervalSince1970:[[forecastDict objectForKey:@"epoch"] doubleValue]];
-        label.text = [date weekdayString];
+        label.text = [[forecast date] weekdayString];
     }
     
     // TAG 2: Condition text
     label = (UILabel *)[cell viewWithTag:2];
-    label.text = [forecastDict objectForKey:@"forecast_condition"];
+    label.text = [forecast condition];
 
     // Add propability of precipitation, if it exists.
-    int forecastPopInt = [[forecastDict objectForKey:@"forecast_pop"] intValue];
+    int forecastPopInt = (int)[forecast precipitation];
     if (forecastPopInt > 0)
     {
         @try {
@@ -251,7 +234,7 @@
     //show the night icon for the forecast if we are viewing night UI
     //
     // If the chance of precipitation is < 40%, show the cloudy icon instead of the rain icon.
-    NSString *scratchForecastConditionNSString = [forecastDict objectForKey:@"forecast_condition"];
+    NSString *scratchForecastConditionNSString = [forecast condition];
     if (forecastPopInt > 0 && forecastPopInt < 40)
     {
         scratchForecastConditionNSString = @"cloudy";
@@ -270,11 +253,11 @@
 
     // TAG 4: High temperature
     label = (UILabel *)[cell viewWithTag:4];
-    label.text = [[UtilityMethods sharedInstance] makeTemperatureString:[[forecastDict objectForKey:@"forecast_high_temperature"] intValue] showDegree:YES];
+    label.text = [[UtilityMethods sharedInstance] makeTemperatureString:(int)[forecast highTemperature] showDegree:YES];
 
     // TAG 5: Low temperature
     label = (UILabel *)[cell viewWithTag:5];
-    label.text = [[UtilityMethods sharedInstance] makeTemperatureString:[[forecastDict objectForKey:@"forecast_low_temperature"] intValue]  showDegree:YES];
+    label.text = [[UtilityMethods sharedInstance] makeTemperatureString:(int)[forecast lowTemperature] showDegree:YES];
 
     return cell;
 }

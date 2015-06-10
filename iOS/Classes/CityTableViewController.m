@@ -47,7 +47,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)createTableSections:(NSDictionary*)weatherDict
+- (void)createTableSections
 {
 	NSArray *observations = [weatherDataModel observations];
     
@@ -75,12 +75,11 @@
 
 - (void)drawNewData
 {
-    NSDictionary *weatherDict = weatherDataModel.weatherDict;
-	if (!weatherDict) return;
+	if (!weatherDataModel.loaded) return;
 
 	isNight = [weatherDataModel isNight];
     
-    [self createTableSections:weatherDict];
+    [self createTableSections];
 
     [self.view performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 }

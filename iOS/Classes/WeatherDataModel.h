@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Neighborhood.h"
 #import "Observation.h"
+#import "Forecast.h"
 
 @interface WeatherDataModel : NSObject {
  @private
@@ -16,13 +17,15 @@
     NSString *pathToWeatherDataPlist;
 }
 
-@property (nonatomic, retain) NSDictionary *weatherDict;
+@property (nonatomic, retain) NSDate *timeOfLastUpdate;
+@property (nonatomic, retain) NSDate *timeOfNextPull;
+@property (nonatomic) BOOL loaded;
 
 - (void)downloadWeatherDataWithCompletionHandler:(void (^)(NSError *))completionHandler;
-- (NSDate*)timeOfLastUpdate;
 - (NSArray*)neighborhoods;
 - (NSArray*)observations;
 - (Observation*)observationForNeighborhood:(NSString*)name;
+- (NSArray*)forecastsForNeighborhood:(NSString*)name;
 - (BOOL)isNight;
 
 @end

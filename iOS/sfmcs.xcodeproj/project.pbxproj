@@ -82,6 +82,8 @@
 		80BC1E8914169EF30048BA5B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BC1E8314169EF30048BA5B /* SBJsonWriter.m */; };
 		80BC1E9214169F700048BA5B /* NeighborhoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BC1E9014169F700048BA5B /* NeighborhoodViewController.m */; };
 		80CB25A815A37A2300022A0C /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CB25A715A37A2300022A0C /* 01-refresh.png */; };
+		8E13B1B81A6B7E1800124F63 /* NSDictionary+JSONHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E13B1B71A6B7E1800124F63 /* NSDictionary+JSONHelpers.m */; };
+		8E13B1BB1A6B809A00124F63 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E13B1BA1A6B809A00124F63 /* Forecast.m */; };
 		8E64444A1A68F26400F47988 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E6444491A68F26400F47988 /* Default-568h@2x.png */; };
 		8E7FA07F1A6A598800993728 /* Neighborhood.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FA07E1A6A598800993728 /* Neighborhood.m */; };
 		8EA821651A6AE0F8001DBB3D /* NSDate+Formatters.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA821641A6AE0F8001DBB3D /* NSDate+Formatters.m */; };
@@ -182,6 +184,10 @@
 		80BC1E9014169F700048BA5B /* NeighborhoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeighborhoodViewController.m; sourceTree = "<group>"; };
 		80CB25A715A37A2300022A0C /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "01-refresh.png"; path = "Images/01-refresh.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* sfmcs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sfmcs-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		8E13B1B61A6B7E1800124F63 /* NSDictionary+JSONHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSONHelpers.h"; sourceTree = "<group>"; };
+		8E13B1B71A6B7E1800124F63 /* NSDictionary+JSONHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSONHelpers.m"; sourceTree = "<group>"; };
+		8E13B1B91A6B809A00124F63 /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
+		8E13B1BA1A6B809A00124F63 /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
 		8E6444491A68F26400F47988 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		8E7FA07D1A6A595B00993728 /* Neighborhood.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Neighborhood.h; sourceTree = "<group>"; };
 		8E7FA07E1A6A598800993728 /* Neighborhood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Neighborhood.m; sourceTree = "<group>"; };
@@ -230,6 +236,10 @@
 				8EB6E1D81A6A61FB0015BB93 /* Observation.m */,
 				8EA821631A6AE0F8001DBB3D /* NSDate+Formatters.h */,
 				8EA821641A6AE0F8001DBB3D /* NSDate+Formatters.m */,
+				8E13B1B61A6B7E1800124F63 /* NSDictionary+JSONHelpers.h */,
+				8E13B1B71A6B7E1800124F63 /* NSDictionary+JSONHelpers.m */,
+				8E13B1B91A6B809A00124F63 /* Forecast.h */,
+				8E13B1BA1A6B809A00124F63 /* Forecast.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -512,6 +522,7 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				8E7FA07F1A6A598800993728 /* Neighborhood.m in Sources */,
+				8E13B1B81A6B7E1800124F63 /* NSDictionary+JSONHelpers.m in Sources */,
 				1D3623260D0F684500981E51 /* sfmcsAppDelegate.m in Sources */,
 				8EA821651A6AE0F8001DBB3D /* NSDate+Formatters.m in Sources */,
 				80BC1E8414169EF30048BA5B /* NSObject+SBJSON.m in Sources */,
@@ -521,6 +532,7 @@
 				80BC1E8814169EF30048BA5B /* SBJsonParser.m in Sources */,
 				8EB6E1D91A6A61FB0015BB93 /* Observation.m in Sources */,
 				80BC1E8914169EF30048BA5B /* SBJsonWriter.m in Sources */,
+				8E13B1BB1A6B809A00124F63 /* Forecast.m in Sources */,
 				80BC1E9214169F700048BA5B /* NeighborhoodViewController.m in Sources */,
 				806479E91423B6F900A7F65B /* CityViewController.m in Sources */,
 				807F6FBB143CC975003215C6 /* UtilityMethods.m in Sources */,

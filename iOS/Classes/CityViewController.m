@@ -78,7 +78,7 @@
 
 - (void)drawNewData
 {
-	if (!weatherDataModel.weatherDict)
+	if (!weatherDataModel.loaded)
     {
         [cityMapImageView setImage:[UIImage imageNamed:@"cityMapDay"]];
         return;
