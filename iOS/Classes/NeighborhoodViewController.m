@@ -21,7 +21,7 @@
 @synthesize currentConditionDescription;
 @synthesize forecastTableView;
 @synthesize forecastTableViewCell;
-@synthesize dictOfCurrentWeatherForNeighborhood;
+@synthesize observation;
 @synthesize arrayOfForecastsForNeighborhood;
 
 - (void)refreshInstanceData
@@ -29,16 +29,7 @@
     NSDictionary *weatherDict = weatherDataModel.weatherDict;
 	if (!weatherDict) return;
 
-	// FIXME: make this not a linear scan for neighborhoodName.
-	NSArray *observationsNSArray = [weatherDict objectForKey:@"observations"];
-	for (NSDictionary *neighborhoodNSDictionary in observationsNSArray)
-	{
-		if ([neighborhoodName compare:[neighborhoodNSDictionary objectForKey:@"name"]] == NSOrderedSame)
-		{
-			self.dictOfCurrentWeatherForNeighborhood = neighborhoodNSDictionary;
-			break;
-		}
-	}
+    self.observation = [weatherDataModel observationForNeighborhood:neighborhoodName];
 
 	// FIXME: make this not a linear scan for neighborhoodName.
 	NSArray *forecastsNSArray = [weatherDict objectForKey:@"forecasts"];
@@ -149,7 +140,7 @@
 - (void)drawNewData {
     [self refreshInstanceData];
 
-	if (!self.dictOfCurrentWeatherForNeighborhood || !self.arrayOfForecastsForNeighborhood)
+	if (!self.observation || !self.arrayOfForecastsForNeighborhood)
     {
         return;
     }
@@ -160,16 +151,16 @@
     self.neighborhoodNameLabel.text = self.neighborhoodName;
 
 	// Draw current temp text
-	int currentTempInt = [[self.dictOfCurrentWeatherForNeighborhood objectForKey:@"current_temperature"] intValue];
+    int currentTempInt = (int)[self.observation temperature];
 	self.currentTemp.text = [[UtilityMethods sharedInstance] makeTemperatureString:currentTempInt showDegree:NO];
     
     // Draw wind mph text
-    int currentWindInt = [[self.dictOfCurrentWeatherForNeighborhood objectForKey:@"current_wind"] intValue];
+    int currentWindInt = (int)[self.observation wind];
     self.currentWind.text = [NSString stringWithFormat:@"%d", currentWindInt];
     
     // Rotate the according to wind direction (degrees) 0==North 90==East 180==South 270==West...
     // consider hiding the pointer on the ring if currentWindDirectionInt == 0 
-    int currentWindDirectionInt = [[self.dictOfCurrentWeatherForNeighborhood objectForKey:@"current_wind_direction"] intValue];
+    int currentWindDirectionInt = (int)[self.observation windDirection];
     if (currentWindInt != 0)
     {
         currentWindDirection.autoresizingMask = UIViewAutoresizingNone;
@@ -181,7 +172,7 @@
     }   
 
 	// Draw description of current condition
-    NSString *currentConditionString = [self.dictOfCurrentWeatherForNeighborhood objectForKey:@"current_condition"];
+    NSString *currentConditionString = [self.observation condition];
 	self.currentConditionDescription.text = currentConditionString;
 
 	BOOL isNight = [weatherDataModel isNight];

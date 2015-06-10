@@ -150,6 +150,20 @@
     return result;
 }
 
+- (Observation*)observationForNeighborhood:(NSString*)name
+{
+    // FIXME: make this not a linear scan for neighborhoodName.
+    NSArray *jsonArray = [weatherDict objectForKey:@"observations"];
+    for (NSDictionary *jsonRecord in jsonArray)
+    {
+        if ([name compare:[jsonRecord objectForKey:@"name"]] == NSOrderedSame)
+        {
+            return [[Observation alloc] initWithJSON:jsonRecord];
+        }
+    }
+    return nil;
+}
+
 -(BOOL)isNight
 {
     // Determine the number of seconds since midnight of the current day according to the time on the phone.

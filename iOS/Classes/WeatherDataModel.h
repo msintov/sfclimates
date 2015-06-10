@@ -22,6 +22,7 @@
 - (NSDate*)timeOfLastUpdate;
 - (NSArray*)neighborhoods;
 - (NSArray*)observations;
+- (Observation*)observationForNeighborhood:(NSString*)name;
 - (BOOL)isNight;
 
 @end

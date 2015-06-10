@@ -13,6 +13,8 @@
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *condition;
 @property (nonatomic) double temperature;
+@property (nonatomic) double wind;
+@property (nonatomic) double windDirection;
 
 - (id)initWithJSON:(NSDictionary*)jsonRecord;
 

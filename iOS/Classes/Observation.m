@@ -18,6 +18,8 @@
     {
         name = [jsonRecord objectForKey:@"name"];
         _temperature = [[jsonRecord objectForKey:@"current_temperature"] doubleValue];
+        _wind = [[jsonRecord objectForKey:@"current_wind"] doubleValue];
+        _windDirection = [[jsonRecord objectForKey:@"current_wind_direction"] doubleValue];
         condition = [jsonRecord objectForKey:@"current_condition"];
     }
     return self;

@@ -17,7 +17,7 @@
 
 @property (nonatomic, retain) WeatherDataModel *weatherDataModel;
 @property (nonatomic, retain) NSString *neighborhoodName;
-@property (nonatomic, retain) NSDictionary *dictOfCurrentWeatherForNeighborhood;
+@property (nonatomic, retain) Observation *observation;
 @property (nonatomic, retain) NSArray *arrayOfForecastsForNeighborhood;
 
 @property(nonatomic, retain) IBOutlet UILabel*           neighborhoodNameLabel;
