@@ -59,7 +59,6 @@
     self.segmentsController = [[SegmentsController alloc] initWithNavigationController:self.navigationController viewControllers:viewControllers];
 
     self.segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Map", @"By Name", nil]];
-    self.segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
 
     [self.segmentedControl addTarget:self.segmentsController
                               action:@selector(indexDidChangeForSegmentedControl:)

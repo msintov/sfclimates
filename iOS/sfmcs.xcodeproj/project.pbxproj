@@ -82,6 +82,7 @@
 		80BC1E8914169EF30048BA5B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BC1E8314169EF30048BA5B /* SBJsonWriter.m */; };
 		80BC1E9214169F700048BA5B /* NeighborhoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BC1E9014169F700048BA5B /* NeighborhoodViewController.m */; };
 		80CB25A815A37A2300022A0C /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CB25A715A37A2300022A0C /* 01-refresh.png */; };
+		8E64444A1A68F26400F47988 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E6444491A68F26400F47988 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,6 +179,7 @@
 		80BC1E9014169F700048BA5B /* NeighborhoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeighborhoodViewController.m; sourceTree = "<group>"; };
 		80CB25A715A37A2300022A0C /* 01-refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "01-refresh.png"; path = "Images/01-refresh.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* sfmcs-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "sfmcs-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		8E6444491A68F26400F47988 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				8E6444491A68F26400F47988 /* Default-568h@2x.png */,
 				3165D01B151C21AC00EAB54D /* Default@2x.png */,
 				3165D01E151C27E000EAB54D /* Default.png */,
 				800F63251506A00300BB0410 /* Icon.png */,
@@ -443,6 +446,7 @@
 				800F62EC150138E900BB0410 /* neighborhoodBackgroundNight.png in Resources */,
 				800F63261506A00400BB0410 /* Icon.png in Resources */,
 				31A564501510B05400D7BD48 /* background.png in Resources */,
+				8E64444A1A68F26400F47988 /* Default-568h@2x.png in Resources */,
 				31A564511510B05400D7BD48 /* bbsLogo.png in Resources */,
 				31A564531513F1ED00D7BD48 /* wundergroundLogo.png in Resources */,
 				8083C3E0151A448D00D4B397 /* condCloud_med.png in Resources */,
