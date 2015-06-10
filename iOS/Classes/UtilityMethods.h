@@ -38,7 +38,6 @@ enum {
 
 + (UtilityMethods*)sharedInstance;
 - (UIImage*)getConditionImage:(NSString*)conditionString withIsNight:(BOOL)isNight withIconSize:(ConditionIconSize)conditionIconSize;
-- (BOOL)isNight:(NSDictionary*)weatherDict;
 - (NSString*)getFormattedDate:(NSDate*)myDate prependString:(NSString*)prependStringValue;
 - (NSString*)getDay:(NSDate*)myDate;
 - (NSString*)makeTemperatureString:(int)temperatureInt showDegree:(BOOL)showDegree;

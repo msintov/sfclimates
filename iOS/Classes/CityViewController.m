@@ -77,8 +77,7 @@
 
 - (void)drawNewData
 {
-    NSDictionary *weatherDict = weatherDataModel.weatherDict;
-	if (!weatherDict)
+	if (!weatherDataModel.weatherDict)
     {
         [cityMapImageView setImage:[UIImage imageNamed:@"cityMapDay"]];
         return;
@@ -125,9 +124,9 @@
         }
     }
 
-	BOOL isNight = [[UtilityMethods sharedInstance] isNight:weatherDict];
+    BOOL isNight = [weatherDataModel isNight];
 
-	NSArray *observationsNSArray = [weatherDict objectForKey:@"observations"];
+    NSArray *observations = [weatherDataModel observations];
 
     // Set city map background.
     if (isNight)
@@ -139,15 +138,15 @@
         [cityMapImageView setImage:[UIImage imageNamed:@"cityMapDay"]];
     }
 
-    for (NSDictionary *neighborhoodNSDictionary in observationsNSArray)
+    for (Observation *observation in observations)
 	{
-		NSString *neighborhoodName = [neighborhoodNSDictionary objectForKey:@"name"];
+        NSString *neighborhoodName = [observation name];
 
         UILabel *tempLabel = [nameToTempViewDict objectForKey:neighborhoodName];
         if (tempLabel != nil)
         {
             // Get temperature string
-            int tempInt = [[neighborhoodNSDictionary objectForKey:@"current_temperature"] intValue];
+            int tempInt = (int)[observation temperature];
             NSString *temperatureString = [[UtilityMethods sharedInstance] makeTemperatureString:tempInt showDegree:YES];
 
             CGFloat right = CGRectGetMaxX(tempLabel.frame);
@@ -163,7 +162,7 @@
         if (imageView != nil)
         {
             // Get condition image
-            NSString *conditionString = [neighborhoodNSDictionary objectForKey:@"current_condition"];
+            NSString *conditionString = [observation condition];
             UIImage *conditionImage = [[UtilityMethods sharedInstance] getConditionImage:conditionString withIsNight:isNight withIconSize:smallConditionIcon];
 
             [imageView setImage:conditionImage];

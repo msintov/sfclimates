@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Neighborhood.h"
+#import "Observation.h"
 
 @interface WeatherDataModel : NSObject {
  @private
@@ -20,5 +21,7 @@
 - (void)downloadWeatherDataWithCompletionHandler:(void (^)(NSError *))completionHandler;
 - (NSDate*)timeOfLastUpdate;
 - (NSArray*)neighborhoods;
+- (NSArray*)observations;
+- (BOOL)isNight;
 
 @end

@@ -127,31 +127,6 @@ static UtilityMethods *sharedUtilityMethodsInstance = nil;
 	return [UIImage imageNamed:conditionImageName];
 }
 
-- (BOOL)isNight:(NSDictionary*)weatherDict
-{
-	// Determine the number of seconds since midnight of the current day according to the time on the phone.
-	int sunriseInSecondsSinceMidnight = [[weatherDict objectForKey:@"sunrise"] intValue];
-	int sunsetInSecondsSinceMidnight = [[weatherDict objectForKey:@"sunset"] intValue];
-
-	BOOL isNight = NO;
-    
-    NSTimeZone* pacificTimeZone = [NSTimeZone timeZoneWithName:@"America/Los_Angeles"];
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    [calendar setTimeZone:pacificTimeZone];
-    
-	NSDateComponents *components = [calendar components:kCFCalendarUnitSecond|kCFCalendarUnitHour|kCFCalendarUnitMinute fromDate:[NSDate date]];
-	if (components)
-	{
-		NSInteger seconds = [components second];
-		NSInteger hours = [components hour];
-		NSInteger minutes = [components minute];
-		
-		NSInteger currentSecondsSinceMidnight = ((hours*60)+minutes)*60 + seconds;
-		if (currentSecondsSinceMidnight < sunriseInSecondsSinceMidnight || currentSecondsSinceMidnight > sunsetInSecondsSinceMidnight) isNight = YES;
-	}
-	return isNight;
-}
-
 - (NSString*)getFormattedDate:(NSDate*)myDate prependString:(NSString*)prependStringValue
 {
     if (!dateFormatterForDate)

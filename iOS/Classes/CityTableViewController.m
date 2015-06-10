@@ -49,12 +49,12 @@
 
 - (void)createTableSections:(NSDictionary*)weatherDict
 {
-	NSArray *observationsNSArray = [weatherDict objectForKey:@"observations"];
+	NSArray *observations = [weatherDataModel observations];
     
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-    for (NSDictionary *neighborhoodNSDictionary in observationsNSArray)
+    for (Observation *observation in observations)
     {
-        NSString *neighborhoodName = [neighborhoodNSDictionary objectForKey:@"name"];
+        NSString *neighborhoodName = [observation name];
         if (!neighborhoodName)
         {
             continue;
@@ -67,7 +67,7 @@
             letterArray = [[NSMutableArray alloc] init];
             [dictionary setObject:letterArray forKey:firstLetter];
         }
-        [letterArray addObject:neighborhoodNSDictionary];
+        [letterArray addObject:observation];
     }
     
     self.sections = dictionary;
@@ -78,7 +78,7 @@
     NSDictionary *weatherDict = weatherDataModel.weatherDict;
 	if (!weatherDict) return;
 
-	isNight = [[UtilityMethods sharedInstance] isNight:weatherDict];
+	isNight = [weatherDataModel isNight];
     
     [self createTableSections:weatherDict];
 
@@ -110,30 +110,33 @@
         self.cityTableViewCell = nil;
     }
 
-    NSDictionary *neighborhoodDict = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+    Observation *observation = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
 
     UILabel *label = (UILabel *)[cell viewWithTag:1];
-	label.text = [neighborhoodDict objectForKey:@"name"];
+    label.text = [observation name];
     
     label = (UILabel *)[cell viewWithTag:2];
-    label.text = [neighborhoodDict objectForKey:@"current_condition"];
+    label.text = [observation condition];
 
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:3];
-    [imageView setImage:[[UtilityMethods sharedInstance] getConditionImage:[neighborhoodDict objectForKey:@"current_condition"] withIsNight:isNight withIconSize:mediumConditionIcon]];
+    [imageView setImage:[[UtilityMethods sharedInstance] getConditionImage:[observation condition]
+                                                               withIsNight:isNight
+                                                              withIconSize:mediumConditionIcon]];
 
     label = (UILabel *)[cell viewWithTag:4];
-    label.text = [[UtilityMethods sharedInstance] makeTemperatureString:[[neighborhoodDict objectForKey:@"current_temperature"] intValue] showDegree:YES];
+    label.text = [[UtilityMethods sharedInstance] makeTemperatureString:(int)[observation temperature]
+                                                             showDegree:YES];
 
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *neighborhoodDict = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+    Observation *observation = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
 
     NeighborhoodViewController *vc = [[NeighborhoodViewController alloc] init];
      
-    vc.neighborhoodName = [neighborhoodDict objectForKey:@"name"];
+    vc.neighborhoodName = [observation name];
     vc.weatherDataModel = self.weatherDataModel;
  
     [self.navigationController pushViewController:vc animated:YES];

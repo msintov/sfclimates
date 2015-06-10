@@ -84,6 +84,7 @@
 		80CB25A815A37A2300022A0C /* 01-refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 80CB25A715A37A2300022A0C /* 01-refresh.png */; };
 		8E64444A1A68F26400F47988 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E6444491A68F26400F47988 /* Default-568h@2x.png */; };
 		8E7FA07F1A6A598800993728 /* Neighborhood.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FA07E1A6A598800993728 /* Neighborhood.m */; };
+		8EB6E1D91A6A61FB0015BB93 /* Observation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB6E1D81A6A61FB0015BB93 /* Observation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,6 +184,8 @@
 		8E6444491A68F26400F47988 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		8E7FA07D1A6A595B00993728 /* Neighborhood.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Neighborhood.h; sourceTree = "<group>"; };
 		8E7FA07E1A6A598800993728 /* Neighborhood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Neighborhood.m; sourceTree = "<group>"; };
+		8EB6E1D71A6A61FB0015BB93 /* Observation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observation.h; sourceTree = "<group>"; };
+		8EB6E1D81A6A61FB0015BB93 /* Observation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Observation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +223,8 @@
 				8087AE6914F5A0390027AD23 /* WeatherDataModel.m */,
 				8E7FA07D1A6A595B00993728 /* Neighborhood.h */,
 				8E7FA07E1A6A598800993728 /* Neighborhood.m */,
+				8EB6E1D71A6A61FB0015BB93 /* Observation.h */,
+				8EB6E1D81A6A61FB0015BB93 /* Observation.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -508,6 +513,7 @@
 				80BC1E8614169EF30048BA5B /* SBJSON.m in Sources */,
 				80BC1E8714169EF30048BA5B /* SBJsonBase.m in Sources */,
 				80BC1E8814169EF30048BA5B /* SBJsonParser.m in Sources */,
+				8EB6E1D91A6A61FB0015BB93 /* Observation.m in Sources */,
 				80BC1E8914169EF30048BA5B /* SBJsonWriter.m in Sources */,
 				80BC1E9214169F700048BA5B /* NeighborhoodViewController.m in Sources */,
 				806479E91423B6F900A7F65B /* CityViewController.m in Sources */,

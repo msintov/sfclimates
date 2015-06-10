@@ -184,7 +184,7 @@
     NSString *currentConditionString = [self.dictOfCurrentWeatherForNeighborhood objectForKey:@"current_condition"];
 	self.currentConditionDescription.text = currentConditionString;
 
-	BOOL isNight = [[UtilityMethods sharedInstance] isNight:weatherDataModel.weatherDict];
+	BOOL isNight = [weatherDataModel isNight];
 
     // Set background for neighborhood current conditions.
     if (isNight)
@@ -268,7 +268,7 @@
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:3];
     if (indexPath.row == 0)
     {
-        BOOL isNight = [[UtilityMethods sharedInstance] isNight:weatherDataModel.weatherDict];
+        BOOL isNight = [weatherDataModel isNight];
         [imageView setImage:[[UtilityMethods sharedInstance] getConditionImage:scratchForecastConditionNSString withIsNight:isNight withIconSize:mediumConditionIcon]];
     }
     else
