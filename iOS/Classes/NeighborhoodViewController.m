@@ -8,6 +8,7 @@
 
 #import "NeighborhoodViewController.h"
 #import "NSDate+Formatters.h"
+#import "NSString+Temperature.h"
 #import "Constants.h"
 
 @implementation NeighborhoodViewController
@@ -137,7 +138,7 @@
 
 	// Draw current temp text
     int currentTempInt = (int)[self.observation temperature];
-	self.currentTemp.text = [[UtilityMethods sharedInstance] makeTemperatureString:currentTempInt showDegree:NO];
+	self.currentTemp.text = [NSString formatTemperature:currentTempInt showDegree:NO];
     
     // Draw wind mph text
     int currentWindInt = (int)[self.observation wind];
@@ -173,7 +174,7 @@
     }
 
 	// Draw image of current conditions
-	[_currentConditionImage setImage:[[UtilityMethods sharedInstance] getConditionImage:currentConditionString withIsNight:isNight withIconSize:largeConditionIcon]];
+	[_currentConditionImage setImage:[[ConditionImages sharedInstance] getConditionImage:currentConditionString withIsNight:isNight withIconSize:largeConditionIcon]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -247,20 +248,20 @@
     if (indexPath.row == 0)
     {
         BOOL isNight = [_weatherDataModel isNight];
-        [imageView setImage:[[UtilityMethods sharedInstance] getConditionImage:scratchForecastConditionNSString withIsNight:isNight withIconSize:mediumConditionIcon]];
+        [imageView setImage:[[ConditionImages sharedInstance] getConditionImage:scratchForecastConditionNSString withIsNight:isNight withIconSize:mediumConditionIcon]];
     }
     else
     {
-        [imageView setImage:[[UtilityMethods sharedInstance] getConditionImage:scratchForecastConditionNSString withIsNight:NO withIconSize:mediumConditionIcon]];
+        [imageView setImage:[[ConditionImages sharedInstance] getConditionImage:scratchForecastConditionNSString withIsNight:NO withIconSize:mediumConditionIcon]];
     }
 
     // TAG 4: High temperature
     label = (UILabel *)[cell viewWithTag:4];
-    label.text = [[UtilityMethods sharedInstance] makeTemperatureString:(int)[forecast highTemperature] showDegree:YES];
+    label.text = [NSString formatTemperature:(int)[forecast highTemperature] showDegree:YES];
 
     // TAG 5: Low temperature
     label = (UILabel *)[cell viewWithTag:5];
-    label.text = [[UtilityMethods sharedInstance] makeTemperatureString:(int)[forecast lowTemperature] showDegree:YES];
+    label.text = [NSString formatTemperature:(int)[forecast lowTemperature] showDegree:YES];
 
     return cell;
 }

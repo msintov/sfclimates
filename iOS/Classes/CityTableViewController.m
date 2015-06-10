@@ -9,6 +9,7 @@
 #import "CityTableViewController.h"
 #import "NeighborhoodViewController.h"
 #import "Constants.h"
+#import "NSString+Temperature.h"
 
 @implementation CityTableViewController
 {
@@ -126,13 +127,13 @@
     label.text = [observation condition];
 
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:3];
-    [imageView setImage:[[UtilityMethods sharedInstance] getConditionImage:[observation condition]
+    [imageView setImage:[[ConditionImages sharedInstance] getConditionImage:[observation condition]
                                                                withIsNight:[_weatherDataModel isNight]
                                                               withIconSize:mediumConditionIcon]];
 
     label = (UILabel *)[cell viewWithTag:4];
-    label.text = [[UtilityMethods sharedInstance] makeTemperatureString:(int)[observation temperature]
-                                                             showDegree:YES];
+    label.text = [NSString formatTemperature:(int)[observation temperature]
+                                  showDegree:YES];
 
     return cell;
 }

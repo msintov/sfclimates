@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WeatherDataModel.h"
-#import "UtilityMethods.h"
+#import "ConditionImages.h"
 
 
 @interface NeighborhoodViewController : UIViewController <UITableViewDataSource>

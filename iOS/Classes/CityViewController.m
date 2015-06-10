@@ -10,6 +10,7 @@
 #import "Neighborhood.h"
 #import "NeighborhoodViewController.h"
 #import "NSDate+Formatters.h"
+#import "NSString+Temperature.h"
 #import "Constants.h"
 
 #define ZOOM_STEP 1.5
@@ -35,7 +36,7 @@
 
     // Add info button
     UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    [infoButton addTarget:self.settingsDelegate action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
+    [infoButton addTarget:self action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
 
     // Add single tap gesture
@@ -78,6 +79,11 @@
     nameToCondViewDict = nil;
     
     [[NSNotificationCenter defaultCenter] removeObserver:_modelObserver];
+}
+
+- (void)showSettings
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:ShowSettingsNotificationName object:nil];
 }
 
 - (void)drawNewData
@@ -151,7 +157,7 @@
         {
             // Get temperature string
             int tempInt = (int)[observation temperature];
-            NSString *temperatureString = [[UtilityMethods sharedInstance] makeTemperatureString:tempInt showDegree:YES];
+            NSString *temperatureString = [NSString formatTemperature:tempInt showDegree:YES];
 
             CGFloat right = CGRectGetMaxX(tempLabel.frame);
             tempLabel.attributedText = [[NSAttributedString alloc] initWithString:temperatureString attributes:_tempFontAttributes];
@@ -167,7 +173,7 @@
         {
             // Get condition image
             NSString *conditionString = [observation condition];
-            UIImage *conditionImage = [[UtilityMethods sharedInstance] getConditionImage:conditionString withIsNight:isNight withIconSize:smallConditionIcon];
+            UIImage *conditionImage = [[ConditionImages sharedInstance] getConditionImage:conditionString withIsNight:isNight withIconSize:smallConditionIcon];
 
             [imageView setImage:conditionImage];
         }

@@ -12,7 +12,8 @@
 #import "CityViewController.h"
 #import "SegmentsController.h"
 
-@interface sfmcsAppDelegate : NSObject <UIApplicationDelegate, ShowSettings> {
+@interface sfmcsAppDelegate : NSObject <UIApplicationDelegate>
+{
     WeatherDataLoader *_weatherDataLoader;
 	WeatherDataModel  *_weatherDataModel;
 	NSTimer           *_networkRequestTimer;

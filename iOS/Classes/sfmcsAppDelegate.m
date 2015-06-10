@@ -9,7 +9,7 @@
 #import "sfmcsAppDelegate.h"
 #import "CityTableViewController.h"
 #import "SettingsViewController.h"
-#import "UtilityMethods.h"
+#import "ConditionImages.h"
 #import "Constants.h"
 #import <stdlib.h>
 #import <time.h>
@@ -43,7 +43,6 @@
     // Set up segmented control.
     CityViewController *cityViewController = [[CityViewController alloc] init];
     [cityViewController setWeatherDataModel:self.weatherDataModel];
-    cityViewController.settingsDelegate = self;
     
     CityTableViewController *cityTableViewController = [[CityTableViewController alloc] init];
     [cityTableViewController setWeatherDataModel:self.weatherDataModel];

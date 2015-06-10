@@ -15,20 +15,12 @@ enum {
     largeConditionIcon
 } typedef ConditionIconSize;
 
-@protocol ShowSettings
--(void) showSettings;
-@end
-
-@interface UtilityMethods : NSObject {
-	NSDictionary *conditionImageMappingDict;
-    NSDateFormatter *dateFormatterForDate;
-    BOOL celsiusMode;
+@interface ConditionImages : NSObject
+{
+	NSDictionary *_conditionImageMappingDict;
 }
 
-+ (UtilityMethods*)sharedInstance;
++ (ConditionImages*)sharedInstance;
 - (UIImage*)getConditionImage:(NSString*)conditionString withIsNight:(BOOL)isNight withIconSize:(ConditionIconSize)conditionIconSize;
-- (NSString*)makeTemperatureString:(int)temperatureInt showDegree:(BOOL)showDegree;
-- (BOOL)isCelsiusMode;
-- (void)setCelsiusMode:(BOOL)newCelsiusMode;
 
 @end

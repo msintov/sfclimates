@@ -7,7 +7,8 @@
 //
 
 #import "SettingsViewController.h"
-#import "UtilityMethods.h"
+#import "ConditionImages.h"
+#import "Preferences.h"
 
 @implementation SettingsViewController
 
@@ -27,7 +28,7 @@
 		DLog(@"In constructing build number for SettingsViewController: Caught %@: %@", [exception name], [exception reason]);
 	}
     
-    BOOL celsius = [[UtilityMethods sharedInstance] isCelsiusMode];
+    BOOL celsius = [[Preferences sharedPreferences] celsiusMode];
     [self.degreesControl setSelectedSegmentIndex:celsius ? 1 : 0];
 }
 
@@ -49,7 +50,7 @@
 - (IBAction)degreesChanged:(id)sender
 {
     NSInteger index = [self.degreesControl selectedSegmentIndex];
-    [[UtilityMethods sharedInstance] setCelsiusMode:(index == 1)];    
+    [[Preferences sharedPreferences] setCelsiusMode:(index == 1)];
 }
 
 /*

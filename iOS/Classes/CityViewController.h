@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WeatherDataModel.h"
-#import "UtilityMethods.h"
+#import "ConditionImages.h"
 
 @interface CityViewController : UIViewController
 {
@@ -18,7 +18,6 @@
 }
 
 @property(nonatomic,retain) IBOutlet UILabel*               lastUpdated;
-@property(nonatomic,retain) id<ShowSettings>                settingsDelegate;
 @property(nonatomic,retain) IBOutlet UIImageView*           cityMapImageView;
 @property(nonatomic,retain) IBOutlet UIButton*              refreshButton;
 

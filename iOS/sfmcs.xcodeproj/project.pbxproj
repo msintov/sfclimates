@@ -53,7 +53,7 @@
 		806479E91423B6F900A7F65B /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 806479E81423B6F900A7F65B /* CityViewController.m */; };
 		80699B3114ED93CB003A3BDF /* SegmentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80699B3014ED93CB003A3BDF /* SegmentsController.m */; };
 		80699B4F14F419D3003A3BDF /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80699B4D14F419D3003A3BDF /* SettingsViewController.m */; };
-		807F6FBB143CC975003215C6 /* UtilityMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 807F6FBA143CC975003215C6 /* UtilityMethods.m */; };
+		807F6FBB143CC975003215C6 /* ConditionImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 807F6FBA143CC975003215C6 /* ConditionImages.m */; };
 		8083C3E0151A448D00D4B397 /* condCloud_med.png in Resources */ = {isa = PBXBuildFile; fileRef = 8083C3D7151A448D00D4B397 /* condCloud_med.png */; };
 		8083C3E1151A448D00D4B397 /* condMoon_med.png in Resources */ = {isa = PBXBuildFile; fileRef = 8083C3D8151A448D00D4B397 /* condMoon_med.png */; };
 		8083C3E2151A448D00D4B397 /* condPartlyCloudyDay_med.png in Resources */ = {isa = PBXBuildFile; fileRef = 8083C3D9151A448D00D4B397 /* condPartlyCloudyDay_med.png */; };
@@ -86,6 +86,8 @@
 		8E01133D1A6B8EC70012E89C /* WeatherDataModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E01133C1A6B8EC70012E89C /* WeatherDataModelTest.m */; };
 		8E13B1B81A6B7E1800124F63 /* NSDictionary+JSONHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E13B1B71A6B7E1800124F63 /* NSDictionary+JSONHelpers.m */; };
 		8E13B1BB1A6B809A00124F63 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E13B1BA1A6B809A00124F63 /* Forecast.m */; };
+		8E26BC011A6CE10500AD3FF2 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E26BC001A6CE10500AD3FF2 /* Preferences.m */; };
+		8E26BC041A6CE2EA00AD3FF2 /* NSString+Temperature.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E26BC031A6CE2EA00AD3FF2 /* NSString+Temperature.m */; };
 		8E64444A1A68F26400F47988 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E6444491A68F26400F47988 /* Default-568h@2x.png */; };
 		8E7FA07F1A6A598800993728 /* Neighborhood.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FA07E1A6A598800993728 /* Neighborhood.m */; };
 		8E80B2B31A6C7634006ADBC7 /* current-observations.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E80B2B21A6C7634006ADBC7 /* current-observations.json */; };
@@ -159,8 +161,8 @@
 		80699B3014ED93CB003A3BDF /* SegmentsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentsController.m; sourceTree = "<group>"; };
 		80699B4C14F419D3003A3BDF /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		80699B4D14F419D3003A3BDF /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		807F6FB9143CC975003215C6 /* UtilityMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilityMethods.h; sourceTree = "<group>"; };
-		807F6FBA143CC975003215C6 /* UtilityMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityMethods.m; sourceTree = "<group>"; };
+		807F6FB9143CC975003215C6 /* ConditionImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionImages.h; sourceTree = "<group>"; };
+		807F6FBA143CC975003215C6 /* ConditionImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionImages.m; sourceTree = "<group>"; };
 		8083C3D7151A448D00D4B397 /* condCloud_med.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = condCloud_med.png; path = Images/condCloud_med.png; sourceTree = "<group>"; };
 		8083C3D8151A448D00D4B397 /* condMoon_med.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = condMoon_med.png; path = Images/condMoon_med.png; sourceTree = "<group>"; };
 		8083C3D9151A448D00D4B397 /* condPartlyCloudyDay_med.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = condPartlyCloudyDay_med.png; path = Images/condPartlyCloudyDay_med.png; sourceTree = "<group>"; };
@@ -207,6 +209,10 @@
 		8E13B1B71A6B7E1800124F63 /* NSDictionary+JSONHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSONHelpers.m"; sourceTree = "<group>"; };
 		8E13B1B91A6B809A00124F63 /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
 		8E13B1BA1A6B809A00124F63 /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
+		8E26BBFF1A6CE10500AD3FF2 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
+		8E26BC001A6CE10500AD3FF2 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
+		8E26BC021A6CE2EA00AD3FF2 /* NSString+Temperature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Temperature.h"; sourceTree = "<group>"; };
+		8E26BC031A6CE2EA00AD3FF2 /* NSString+Temperature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Temperature.m"; sourceTree = "<group>"; };
 		8E6444491A68F26400F47988 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		8E7FA07D1A6A595B00993728 /* Neighborhood.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Neighborhood.h; sourceTree = "<group>"; };
 		8E7FA07E1A6A598800993728 /* Neighborhood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Neighborhood.m; sourceTree = "<group>"; };
@@ -257,8 +263,8 @@
 				80699B4D14F419D3003A3BDF /* SettingsViewController.m */,
 				1D3623240D0F684500981E51 /* sfmcsAppDelegate.h */,
 				1D3623250D0F684500981E51 /* sfmcsAppDelegate.m */,
-				807F6FB9143CC975003215C6 /* UtilityMethods.h */,
-				807F6FBA143CC975003215C6 /* UtilityMethods.m */,
+				807F6FB9143CC975003215C6 /* ConditionImages.h */,
+				807F6FBA143CC975003215C6 /* ConditionImages.m */,
 				8087AE6814F5A0390027AD23 /* WeatherDataModel.h */,
 				8087AE6914F5A0390027AD23 /* WeatherDataModel.m */,
 				8E7FA07D1A6A595B00993728 /* Neighborhood.h */,
@@ -275,6 +281,10 @@
 				8EC1B1231A6B894900FA5C90 /* WeatherDataLoader.m */,
 				8EE3BF0B1A6CDC5D00D533BC /* Constants.h */,
 				8EE3BF0C1A6CDC5D00D533BC /* Constants.m */,
+				8E26BBFF1A6CE10500AD3FF2 /* Preferences.h */,
+				8E26BC001A6CE10500AD3FF2 /* Preferences.m */,
+				8E26BC021A6CE2EA00AD3FF2 /* NSString+Temperature.h */,
+				8E26BC031A6CE2EA00AD3FF2 /* NSString+Temperature.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -615,6 +625,7 @@
 				80BC1E8414169EF30048BA5B /* NSObject+SBJSON.m in Sources */,
 				80BC1E8514169EF30048BA5B /* NSString+SBJSON.m in Sources */,
 				80BC1E8614169EF30048BA5B /* SBJSON.m in Sources */,
+				8E26BC011A6CE10500AD3FF2 /* Preferences.m in Sources */,
 				80BC1E8714169EF30048BA5B /* SBJsonBase.m in Sources */,
 				80BC1E8814169EF30048BA5B /* SBJsonParser.m in Sources */,
 				8EB6E1D91A6A61FB0015BB93 /* Observation.m in Sources */,
@@ -623,7 +634,8 @@
 				8E13B1BB1A6B809A00124F63 /* Forecast.m in Sources */,
 				80BC1E9214169F700048BA5B /* NeighborhoodViewController.m in Sources */,
 				806479E91423B6F900A7F65B /* CityViewController.m in Sources */,
-				807F6FBB143CC975003215C6 /* UtilityMethods.m in Sources */,
+				807F6FBB143CC975003215C6 /* ConditionImages.m in Sources */,
+				8E26BC041A6CE2EA00AD3FF2 /* NSString+Temperature.m in Sources */,
 				8008B91314ED867300F4E7C3 /* CityTableViewController.m in Sources */,
 				8EC1B1241A6B894900FA5C90 /* WeatherDataLoader.m in Sources */,
 				80699B3114ED93CB003A3BDF /* SegmentsController.m in Sources */,
