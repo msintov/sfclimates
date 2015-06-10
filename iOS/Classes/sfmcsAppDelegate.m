@@ -98,10 +98,10 @@
         {
             _weatherDataModel = newModel;
 
-            // Tell the visible view controller to update its view, since we have new data.
-            id <RequestRedrawDelegate> delegate = (id)self.navigationController.visibleViewController;
-            [delegate drawNewData];
-            
+            [[NSNotificationCenter defaultCenter] postNotificationName:ModelChangedNotificationName
+                                                                object:self
+                                                              userInfo:@{@"model": newModel}];
+
             _numConsecutiveNetworkRequestFailures = 0;
             
             // Retrieve next time to retrieve weather data and schedule the timer.

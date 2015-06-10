@@ -10,6 +10,9 @@
 #import "NSDate+Formatters.h"
 
 @implementation NeighborhoodViewController
+{
+    id<NSObject> _modelObserver;
+}
 
 @synthesize weatherDataModel;
 @synthesize neighborhoodBackgroundImageView;
@@ -70,7 +73,8 @@
     }
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
 	self.navigationItem.title = @"Currently";
@@ -79,12 +83,21 @@
     forecastTableView.dataSource = self;
 
     [self drawNewData];
+    
+    _modelObserver = [[NSNotificationCenter defaultCenter] addObserverForName:ModelChangedNotificationName
+                                                                       object:nil queue:nil
+                                                                   usingBlock:^(NSNotification *note) {
+                                                                       weatherDataModel = [[note userInfo] objectForKey:@"newModel"];
+                                                                       [self drawNewData];
+                                                                   }];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    
+
+    [[NSNotificationCenter defaultCenter] removeObserver:_modelObserver];
+
     self.forecastTableView = nil;
     self.neighborhoodBackgroundImageView = nil;
     self.neighborhoodNameLabel = nil;

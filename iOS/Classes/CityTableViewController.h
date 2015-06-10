@@ -10,7 +10,7 @@
 #import "WeatherDataModel.h"
 #import "UtilityMethods.h"
 
-@interface CityTableViewController : UITableViewController <RequestRedrawDelegate>
+@interface CityTableViewController : UITableViewController
 {
     BOOL isNight;
 }

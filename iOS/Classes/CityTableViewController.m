@@ -10,6 +10,9 @@
 #import "NeighborhoodViewController.h"
 
 @implementation CityTableViewController
+{
+    id<NSObject> _modelObserver;
+}
 
 @synthesize weatherDataModel;
 @synthesize sections;
@@ -33,6 +36,20 @@
     UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight]; 
     [infoButton addTarget:self.settingsDelegate action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+
+    _modelObserver = [[NSNotificationCenter defaultCenter] addObserverForName:ModelChangedNotificationName
+                                                                       object:nil queue:nil
+                                                                   usingBlock:^(NSNotification *note) {
+                                                                       weatherDataModel = [[note userInfo] objectForKey:@"newModel"];
+                                                                       [self drawNewData];
+                                                                   }];
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:_modelObserver];
 }
 
 - (void)viewWillAppear:(BOOL)animated

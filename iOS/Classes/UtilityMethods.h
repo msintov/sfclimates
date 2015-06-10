@@ -15,16 +15,6 @@ enum {
     largeConditionIcon
 } typedef ConditionIconSize;
 
-// This protocol is implemented by the CityViewController and the NeighborhoodViewController
-// to call setNeedsDisplay on their respective views. When new data arrives, sfmcsAppDelegate
-// is contacted by the model, and sfmcsAppDelegate tells the visible view controller to update
-// by calling drawNewData.
-//
-// This protocol could live somewhere else but this location was handy.
-@protocol RequestRedrawDelegate
--(void) drawNewData;
-@end
-
 @protocol ShowSettings
 -(void) showSettings;
 @end

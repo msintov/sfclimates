@@ -10,6 +10,8 @@
 #import "JSON.h"
 #import "NSDictionary+JSONHelpers.h"
 
+NSString *ModelChangedNotificationName = @"com.bakerbeachsoftware.sfclimates.modelChanged";
+
 @implementation WeatherDataModel
 {
     NSMutableArray *_neighborhoods;

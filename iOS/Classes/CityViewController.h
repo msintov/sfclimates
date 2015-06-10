@@ -10,7 +10,7 @@
 #import "WeatherDataModel.h"
 #import "UtilityMethods.h"
 
-@interface CityViewController : UIViewController <RequestRedrawDelegate>
+@interface CityViewController : UIViewController
 {
 	NSDictionary *colorToNeighborhoodHitTestDict;
     NSMutableDictionary *nameToTempViewDict;

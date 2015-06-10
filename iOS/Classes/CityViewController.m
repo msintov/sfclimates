@@ -25,6 +25,7 @@
 {
     NSDictionary *tempFontAttributes;
     NSDictionary *labelFontAttributes;
+    id<NSObject> _modelObserver;
 }
 
 @synthesize lastUpdated;
@@ -55,6 +56,13 @@
         NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0],
         NSForegroundColorAttributeName: [UIColor colorWithWhite: 1.0 alpha:1]
     };
+
+    _modelObserver = [[NSNotificationCenter defaultCenter] addObserverForName:ModelChangedNotificationName
+                                                                       object:nil queue:nil
+                                                                   usingBlock:^(NSNotification *note) {
+                                                                       weatherDataModel = [[note userInfo] objectForKey:@"newModel"];
+                                                                       [self drawNewData];
+                                                                   }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -64,8 +72,8 @@
     [super viewWillAppear:animated];
 }
 
-- (void)viewDidUnload {
-
+- (void)viewDidUnload
+{
     [super viewDidUnload];
 
     self.lastUpdated = nil;
@@ -74,6 +82,8 @@
 
     nameToTempViewDict = nil;
     nameToCondViewDict = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:_modelObserver];
 }
 
 - (void)drawNewData

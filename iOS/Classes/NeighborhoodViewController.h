@@ -11,7 +11,7 @@
 #import "UtilityMethods.h"
 
 
-@interface NeighborhoodViewController : UIViewController <RequestRedrawDelegate, UITableViewDataSource>
+@interface NeighborhoodViewController : UIViewController <UITableViewDataSource>
 {
 }
 

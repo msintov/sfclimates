@@ -11,6 +11,8 @@
 #import "Observation.h"
 #import "Forecast.h"
 
+extern NSString *ModelChangedNotificationName;
+
 @interface WeatherDataModel : NSObject
 
 @property (nonatomic, retain) NSDate *timeOfLastUpdate;
