@@ -1,0 +1,2019 @@
+{
+  "timeOfNextPull": 1421564221.795749, 
+  "neighborhoods": [
+    {
+      "y": 360, 
+      "x": 263, 
+      "height": 24, 
+      "name": "Bayview", 
+      "width": 32
+    }, 
+    {
+      "y": 243, 
+      "x": 175, 
+      "height": 24, 
+      "name": "Castro", 
+      "width": 32
+    }, 
+    {
+      "y": 209, 
+      "x": 142, 
+      "height": 24, 
+      "name": "Cole Valley", 
+      "width": 32
+    }, 
+    {
+      "y": 139, 
+      "x": 241, 
+      "height": 24, 
+      "name": "Financial District", 
+      "width": 32
+    }, 
+    {
+      "y": 357, 
+      "x": 177, 
+      "height": 24, 
+      "name": "Glen Park", 
+      "width": 32
+    }, 
+    {
+      "y": 196, 
+      "x": 206, 
+      "height": 24, 
+      "name": "Hayes Valley", 
+      "width": 32
+    }, 
+    {
+      "y": 167, 
+      "x": 123, 
+      "height": 24, 
+      "name": "Inner Richmond", 
+      "width": 32
+    }, 
+    {
+      "y": 385, 
+      "x": 52, 
+      "height": 24, 
+      "name": "Lake Merced", 
+      "width": 32
+    }, 
+    {
+      "y": 270, 
+      "x": 220, 
+      "height": 24, 
+      "name": "Mission", 
+      "width": 32
+    }, 
+    {
+      "y": 304, 
+      "x": 181, 
+      "height": 24, 
+      "name": "Noe Valley", 
+      "width": 32
+    }, 
+    {
+      "y": 117, 
+      "x": 185, 
+      "height": 24, 
+      "name": "Marina", 
+      "width": 32
+    }, 
+    {
+      "y": 174, 
+      "x": 46, 
+      "height": 24, 
+      "name": "Outer Richmond", 
+      "width": 32
+    }, 
+    {
+      "y": 233, 
+      "x": 46, 
+      "height": 24, 
+      "name": "Outer Sunset", 
+      "width": 32
+    }, 
+    {
+      "y": 231, 
+      "x": 262, 
+      "height": 24, 
+      "name": "Potrero Hill", 
+      "width": 32
+    }, 
+    {
+      "y": 177, 
+      "x": 258, 
+      "height": 24, 
+      "name": "SOMA", 
+      "width": 32
+    }, 
+    {
+      "y": 284, 
+      "x": 126, 
+      "height": 24, 
+      "name": "Twin Peaks", 
+      "width": 32
+    }, 
+    {
+      "y": 334, 
+      "x": 93, 
+      "height": 24, 
+      "name": "West Portal", 
+      "width": 32
+    }
+  ], 
+  "forecasts": [
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Bayview", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:00:02-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 53.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Bayview", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:00:02-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Bayview", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:00:02-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Bayview", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:00:02-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Bayview", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:00:02-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Bayview", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:00:02-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Bayview", 
+        "forecast_high_temperature": 66.0, 
+        "datetime": "2015-01-17T15:00:02-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Bayview", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:00:02-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Bayview", 
+        "forecast_high_temperature": 70.0, 
+        "datetime": "2015-01-17T15:00:02-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Bayview", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:00:02-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Castro", 
+        "forecast_high_temperature": 59.0, 
+        "datetime": "2015-01-17T15:00:14-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 53.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Castro", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:00:14-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Castro", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:00:14-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Castro", 
+        "forecast_high_temperature": 59.0, 
+        "datetime": "2015-01-17T15:00:14-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Castro", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:00:14-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Castro", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:00:14-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Castro", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:00:14-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Castro", 
+        "forecast_high_temperature": 67.0, 
+        "datetime": "2015-01-17T15:00:14-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Castro", 
+        "forecast_high_temperature": 68.0, 
+        "datetime": "2015-01-17T15:00:14-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Castro", 
+        "forecast_high_temperature": 67.0, 
+        "datetime": "2015-01-17T15:00:14-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Cole Valley", 
+        "forecast_high_temperature": 59.0, 
+        "datetime": "2015-01-17T15:00:27-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 53.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Cole Valley", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:00:27-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Cole Valley", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:00:27-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Cole Valley", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:00:27-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Cole Valley", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:00:27-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Cole Valley", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:00:27-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Cole Valley", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:00:27-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Cole Valley", 
+        "forecast_high_temperature": 67.0, 
+        "datetime": "2015-01-17T15:00:27-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Cole Valley", 
+        "forecast_high_temperature": 68.0, 
+        "datetime": "2015-01-17T15:00:27-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Cole Valley", 
+        "forecast_high_temperature": 67.0, 
+        "datetime": "2015-01-17T15:00:27-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Financial District", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:00:38-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 54.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Financial District", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:00:38-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Financial District", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:00:38-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Financial District", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:00:38-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Financial District", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:00:38-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Financial District", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:00:38-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Financial District", 
+        "forecast_high_temperature": 66.0, 
+        "datetime": "2015-01-17T15:00:38-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Financial District", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:00:38-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Financial District", 
+        "forecast_high_temperature": 70.0, 
+        "datetime": "2015-01-17T15:00:38-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Financial District", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:00:38-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Glen Park", 
+        "forecast_high_temperature": 59.0, 
+        "datetime": "2015-01-17T15:00:48-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 53.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Glen Park", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:00:48-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Glen Park", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:00:48-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Glen Park", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:00:48-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Glen Park", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:00:48-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Glen Park", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:00:48-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Glen Park", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:00:48-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Glen Park", 
+        "forecast_high_temperature": 67.0, 
+        "datetime": "2015-01-17T15:00:48-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Glen Park", 
+        "forecast_high_temperature": 68.0, 
+        "datetime": "2015-01-17T15:00:48-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Glen Park", 
+        "forecast_high_temperature": 67.0, 
+        "datetime": "2015-01-17T15:00:48-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Hayes Valley", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:00:58-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Hayes Valley", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:00:58-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Hayes Valley", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:00:58-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Hayes Valley", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:00:58-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 46.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Hayes Valley", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:00:58-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Hayes Valley", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:00:58-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Hayes Valley", 
+        "forecast_high_temperature": 66.0, 
+        "datetime": "2015-01-17T15:00:58-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Hayes Valley", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:00:58-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Hayes Valley", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:00:58-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Hayes Valley", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:00:58-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Inner Richmond", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:01:08-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 54.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Inner Richmond", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:01:08-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Inner Richmond", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:01:08-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Inner Richmond", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:01:08-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Inner Richmond", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:01:08-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Inner Richmond", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:01:08-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Inner Richmond", 
+        "forecast_high_temperature": 65.0, 
+        "datetime": "2015-01-17T15:01:08-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Inner Richmond", 
+        "forecast_high_temperature": 68.0, 
+        "datetime": "2015-01-17T15:01:08-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 53.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Inner Richmond", 
+        "forecast_high_temperature": 70.0, 
+        "datetime": "2015-01-17T15:01:08-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Inner Richmond", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:01:08-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Lake Merced", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:01:19-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 54.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Lake Merced", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:01:19-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Lake Merced", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:01:19-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Lake Merced", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:01:19-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Lake Merced", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:01:19-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Lake Merced", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:01:19-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Lake Merced", 
+        "forecast_high_temperature": 66.0, 
+        "datetime": "2015-01-17T15:01:19-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Lake Merced", 
+        "forecast_high_temperature": 68.0, 
+        "datetime": "2015-01-17T15:01:19-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Lake Merced", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:01:19-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Lake Merced", 
+        "forecast_high_temperature": 68.0, 
+        "datetime": "2015-01-17T15:01:19-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Marina", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:01:29-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 54.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Marina", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:01:29-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Marina", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:01:29-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Marina", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:01:29-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Marina", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:01:29-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Marina", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:01:29-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Marina", 
+        "forecast_high_temperature": 65.0, 
+        "datetime": "2015-01-17T15:01:29-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Marina", 
+        "forecast_high_temperature": 68.0, 
+        "datetime": "2015-01-17T15:01:29-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 53.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Marina", 
+        "forecast_high_temperature": 70.0, 
+        "datetime": "2015-01-17T15:01:29-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Marina", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:01:29-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Mission", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:01:40-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Mission", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:01:40-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Mission", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:01:40-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Mission", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:01:40-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 46.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Mission", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:01:40-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Mission", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:01:40-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Mission", 
+        "forecast_high_temperature": 66.0, 
+        "datetime": "2015-01-17T15:01:40-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Mission", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:01:40-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Mission", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:01:40-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Mission", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:01:40-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Noe Valley", 
+        "forecast_high_temperature": 59.0, 
+        "datetime": "2015-01-17T15:01:50-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 53.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Noe Valley", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:01:50-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Noe Valley", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:01:50-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Noe Valley", 
+        "forecast_high_temperature": 59.0, 
+        "datetime": "2015-01-17T15:01:50-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Noe Valley", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:01:50-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Noe Valley", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:01:50-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Noe Valley", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:01:50-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Noe Valley", 
+        "forecast_high_temperature": 67.0, 
+        "datetime": "2015-01-17T15:01:50-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Noe Valley", 
+        "forecast_high_temperature": 68.0, 
+        "datetime": "2015-01-17T15:01:50-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Noe Valley", 
+        "forecast_high_temperature": 67.0, 
+        "datetime": "2015-01-17T15:01:50-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Outer Richmond", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:02:00-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 53.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Outer Richmond", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:02:00-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Outer Richmond", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:02:00-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Outer Richmond", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:02:00-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Outer Richmond", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:02:00-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Outer Richmond", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:02:00-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Outer Richmond", 
+        "forecast_high_temperature": 66.0, 
+        "datetime": "2015-01-17T15:02:00-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Outer Richmond", 
+        "forecast_high_temperature": 68.0, 
+        "datetime": "2015-01-17T15:02:00-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Outer Richmond", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:02:00-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Outer Richmond", 
+        "forecast_high_temperature": 68.0, 
+        "datetime": "2015-01-17T15:02:00-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Outer Sunset", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:02:11-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 53.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Outer Sunset", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:02:11-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Outer Sunset", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:02:11-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Outer Sunset", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:02:11-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Outer Sunset", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:02:11-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Outer Sunset", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:02:11-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Outer Sunset", 
+        "forecast_high_temperature": 66.0, 
+        "datetime": "2015-01-17T15:02:11-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Outer Sunset", 
+        "forecast_high_temperature": 68.0, 
+        "datetime": "2015-01-17T15:02:11-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Outer Sunset", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:02:11-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Outer Sunset", 
+        "forecast_high_temperature": 68.0, 
+        "datetime": "2015-01-17T15:02:11-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Potrero Hill", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:02:22-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Potrero Hill", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:02:22-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Potrero Hill", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:02:22-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Potrero Hill", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:02:22-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 46.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Potrero Hill", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:02:22-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Potrero Hill", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:02:22-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 48.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Potrero Hill", 
+        "forecast_high_temperature": 66.0, 
+        "datetime": "2015-01-17T15:02:22-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Potrero Hill", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:02:22-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Potrero Hill", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:02:22-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Potrero Hill", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:02:22-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "SOMA", 
+        "forecast_high_temperature": 61.0, 
+        "datetime": "2015-01-17T15:02:32-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 54.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "SOMA", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:02:32-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "SOMA", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:02:32-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "SOMA", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:02:32-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "SOMA", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:02:32-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "SOMA", 
+        "forecast_high_temperature": 64.0, 
+        "datetime": "2015-01-17T15:02:32-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "SOMA", 
+        "forecast_high_temperature": 66.0, 
+        "datetime": "2015-01-17T15:02:32-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "SOMA", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:02:32-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 53.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "SOMA", 
+        "forecast_high_temperature": 70.0, 
+        "datetime": "2015-01-17T15:02:32-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 53.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "SOMA", 
+        "forecast_high_temperature": 69.0, 
+        "datetime": "2015-01-17T15:02:32-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "Twin Peaks", 
+        "forecast_high_temperature": 59.0, 
+        "datetime": "2015-01-17T15:02:42-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 53.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "Twin Peaks", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:02:42-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "Twin Peaks", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:02:42-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "Twin Peaks", 
+        "forecast_high_temperature": 59.0, 
+        "datetime": "2015-01-17T15:02:42-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "Twin Peaks", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:02:42-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "Twin Peaks", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:02:42-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "Twin Peaks", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:02:42-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "Twin Peaks", 
+        "forecast_high_temperature": 67.0, 
+        "datetime": "2015-01-17T15:02:42-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "Twin Peaks", 
+        "forecast_high_temperature": 68.0, 
+        "datetime": "2015-01-17T15:02:42-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "Twin Peaks", 
+        "forecast_high_temperature": 67.0, 
+        "datetime": "2015-01-17T15:02:42-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ], 
+    [
+      {
+        "forecast_date": "2015-01-17T00:00:00-08:00", 
+        "name": "West Portal", 
+        "forecast_high_temperature": 59.0, 
+        "datetime": "2015-01-17T15:02:53-08:00", 
+        "epoch": 1421481600, 
+        "forecast_low_temperature": 53.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-18T00:00:00-08:00", 
+        "name": "West Portal", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:02:53-08:00", 
+        "epoch": 1421568000, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-19T00:00:00-08:00", 
+        "name": "West Portal", 
+        "forecast_high_temperature": 60.0, 
+        "datetime": "2015-01-17T15:02:53-08:00", 
+        "epoch": 1421654400, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-20T00:00:00-08:00", 
+        "name": "West Portal", 
+        "forecast_high_temperature": 59.0, 
+        "datetime": "2015-01-17T15:02:53-08:00", 
+        "epoch": 1421740800, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Partly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-21T00:00:00-08:00", 
+        "name": "West Portal", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:02:53-08:00", 
+        "epoch": 1421827200, 
+        "forecast_low_temperature": 47.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-22T00:00:00-08:00", 
+        "name": "West Portal", 
+        "forecast_high_temperature": 62.0, 
+        "datetime": "2015-01-17T15:02:53-08:00", 
+        "epoch": 1421913600, 
+        "forecast_low_temperature": 49.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Mostly Cloudy"
+      }, 
+      {
+        "forecast_date": "2015-01-23T00:00:00-08:00", 
+        "name": "West Portal", 
+        "forecast_high_temperature": 63.0, 
+        "datetime": "2015-01-17T15:02:53-08:00", 
+        "epoch": 1422000000, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-24T00:00:00-08:00", 
+        "name": "West Portal", 
+        "forecast_high_temperature": 67.0, 
+        "datetime": "2015-01-17T15:02:53-08:00", 
+        "epoch": 1422086400, 
+        "forecast_low_temperature": 52.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-25T00:00:00-08:00", 
+        "name": "West Portal", 
+        "forecast_high_temperature": 68.0, 
+        "datetime": "2015-01-17T15:02:53-08:00", 
+        "epoch": 1422172800, 
+        "forecast_low_temperature": 51.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }, 
+      {
+        "forecast_date": "2015-01-26T00:00:00-08:00", 
+        "name": "West Portal", 
+        "forecast_high_temperature": 67.0, 
+        "datetime": "2015-01-17T15:02:53-08:00", 
+        "epoch": 1422259200, 
+        "forecast_low_temperature": 50.0, 
+        "forecast_pop": 0.0, 
+        "forecast_condition": "Clear"
+      }
+    ]
+  ], 
+  "version": 1, 
+  "sunset": 61215, 
+  "observations": [
+    {
+      "current_wind": 0.0, 
+      "epoch": 1421563801, 
+      "current_wind_direction": 273.0, 
+      "name": "Bayview", 
+      "current_condition": "Mostly Cloudy", 
+      "current_temperature": 57.0, 
+      "datetime": "2015-01-17T22:50:01-08:00"
+    }, 
+    {
+      "current_wind": 0.0, 
+      "epoch": 1421563802, 
+      "current_wind_direction": 265.0, 
+      "name": "Castro", 
+      "current_condition": "Mostly Cloudy", 
+      "current_temperature": 56.5, 
+      "datetime": "2015-01-17T22:50:02-08:00"
+    }, 
+    {
+      "current_wind": 0.0, 
+      "epoch": 1421563803, 
+      "current_wind_direction": 137.0, 
+      "name": "Cole Valley", 
+      "current_condition": "Mostly Cloudy", 
+      "current_temperature": 55.2, 
+      "datetime": "2015-01-17T22:50:03-08:00"
+    }, 
+    {
+      "current_wind": 0.9, 
+      "epoch": 1421563804, 
+      "current_wind_direction": 45.0, 
+      "name": "Financial District", 
+      "current_condition": "Mostly Cloudy", 
+      "current_temperature": 55.6, 
+      "datetime": "2015-01-17T22:50:04-08:00"
+    }, 
+    {
+      "current_wind": 2.7, 
+      "epoch": 1421563805, 
+      "current_wind_direction": 112.0, 
+      "name": "Glen Park", 
+      "current_condition": "Mostly Cloudy", 
+      "current_temperature": 56.1, 
+      "datetime": "2015-01-17T22:50:05-08:00"
+    }, 
+    {
+      "current_wind": 0.0, 
+      "epoch": 1421563806, 
+      "current_wind_direction": 221.0, 
+      "name": "Hayes Valley", 
+      "current_condition": "Mostly Cloudy", 
+      "current_temperature": 57.0, 
+      "datetime": "2015-01-17T22:50:06-08:00"
+    }, 
+    {
+      "current_wind": 2.0, 
+      "epoch": 1421563806, 
+      "current_wind_direction": 85.0, 
+      "name": "Inner Richmond", 
+      "current_condition": "Overcast", 
+      "current_temperature": 55.4, 
+      "datetime": "2015-01-17T22:50:06-08:00"
+    }, 
+    {
+      "current_wind": 0.0, 
+      "epoch": 1421563807, 
+      "current_wind_direction": 154.0, 
+      "name": "Lake Merced", 
+      "current_condition": "Overcast", 
+      "current_temperature": 56.0, 
+      "datetime": "2015-01-17T22:50:07-08:00"
+    }, 
+    {
+      "current_wind": 0.0, 
+      "epoch": 1421563808, 
+      "current_wind_direction": 132.0, 
+      "name": "Marina", 
+      "current_condition": "Overcast", 
+      "current_temperature": 54.1, 
+      "datetime": "2015-01-17T22:50:08-08:00"
+    }, 
+    {
+      "current_wind": 0.0, 
+      "epoch": 1421563809, 
+      "current_wind_direction": 90.0, 
+      "name": "Mission", 
+      "current_condition": "Mostly Cloudy", 
+      "current_temperature": 54.3, 
+      "datetime": "2015-01-17T22:50:09-08:00"
+    }, 
+    {
+      "current_wind": 0.0, 
+      "epoch": 1421563810, 
+      "current_wind_direction": 180.0, 
+      "name": "Noe Valley", 
+      "current_condition": "Mostly Cloudy", 
+      "current_temperature": 55.0, 
+      "datetime": "2015-01-17T22:50:10-08:00"
+    }, 
+    {
+      "current_wind": 8.1, 
+      "epoch": 1421563811, 
+      "current_wind_direction": 195.0, 
+      "name": "Outer Richmond", 
+      "current_condition": "Mostly Cloudy", 
+      "current_temperature": 56.8, 
+      "datetime": "2015-01-17T22:50:11-08:00"
+    }, 
+    {
+      "current_wind": 3.0, 
+      "epoch": 1421563811, 
+      "current_wind_direction": 49.0, 
+      "name": "Outer Sunset", 
+      "current_condition": "Overcast", 
+      "current_temperature": 56.6, 
+      "datetime": "2015-01-17T22:50:11-08:00"
+    }, 
+    {
+      "current_wind": 0.0, 
+      "epoch": 1421563812, 
+      "current_wind_direction": 90.0, 
+      "name": "Potrero Hill", 
+      "current_condition": "Mostly Cloudy", 
+      "current_temperature": 53.7, 
+      "datetime": "2015-01-17T22:50:12-08:00"
+    }, 
+    {
+      "current_wind": 0.0, 
+      "epoch": 1421563813, 
+      "current_wind_direction": 130.0, 
+      "name": "SOMA", 
+      "current_condition": "Mostly Cloudy", 
+      "current_temperature": 57.4, 
+      "datetime": "2015-01-17T22:50:13-08:00"
+    }, 
+    {
+      "current_wind": 2.7, 
+      "epoch": 1421563814, 
+      "current_wind_direction": 22.0, 
+      "name": "Twin Peaks", 
+      "current_condition": "Overcast", 
+      "current_temperature": 55.4, 
+      "datetime": "2015-01-17T22:50:14-08:00"
+    }, 
+    {
+      "current_wind": 3.0, 
+      "epoch": 1421563815, 
+      "current_wind_direction": 68.0, 
+      "name": "West Portal", 
+      "current_condition": "Mostly Cloudy", 
+      "current_temperature": 56.8, 
+      "datetime": "2015-01-17T22:50:15-08:00"
+    }
+  ], 
+  "sunrise": 25222, 
+  "timeOfLastUpdate": 1421563815
+}
