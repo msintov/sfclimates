@@ -14,27 +14,12 @@
     id<NSObject> _modelObserver;
 }
 
-@synthesize weatherDataModel;
-@synthesize neighborhoodBackgroundImageView;
-@synthesize neighborhoodName;
-@synthesize neighborhoodNameLabel;
-@synthesize currentWind;
-@synthesize currentWindDirection;
-@synthesize currentConditionImage;
-@synthesize currentTemp;
-@synthesize currentConditionDescription;
-@synthesize forecastTableView;
-@synthesize forecastTableViewCell;
-@synthesize observation;
-@synthesize arrayOfForecastsForNeighborhood;
-
 - (void)refreshInstanceData
 {
-	if (!weatherDataModel.loaded) return;
+    Neighborhood *neighborhood = [_weatherDataModel neighborhoodByName:_neighborhoodName];
+    _observation = [neighborhood observation];
 
-    self.observation = [weatherDataModel observationForNeighborhood:neighborhoodName];
-
-    NSArray *forecasts = [weatherDataModel forecastsForNeighborhood:neighborhoodName];
+    NSArray *forecasts = [neighborhood forecasts];
     
     NSRange rangeOfForecastDays;
     rangeOfForecastDays.location = 0;
@@ -77,17 +62,17 @@
 {
     [super viewDidLoad];
 
-	self.navigationItem.title = @"Currently";
-    
-    [forecastTableView setAllowsSelection:NO];
-    forecastTableView.dataSource = self;
+    self.navigationItem.title = _neighborhoodName;
+
+    [_forecastTableView setAllowsSelection:NO];
+    _forecastTableView.dataSource = self;
 
     [self drawNewData];
     
     _modelObserver = [[NSNotificationCenter defaultCenter] addObserverForName:ModelChangedNotificationName
                                                                        object:nil queue:nil
                                                                    usingBlock:^(NSNotification *note) {
-                                                                       weatherDataModel = [[note userInfo] objectForKey:@"newModel"];
+                                                                       _weatherDataModel = [[note userInfo] objectForKey:@"model"];
                                                                        [self drawNewData];
                                                                    }];
 }
@@ -135,7 +120,8 @@
     }
 }
 
-- (void)drawNewData {
+- (void)drawNewData
+{
     [self refreshInstanceData];
 
 	if (!self.observation || !self.arrayOfForecastsForNeighborhood)
@@ -143,7 +129,7 @@
         return;
     }
 
-    [forecastTableView reloadData];
+    [_forecastTableView reloadData];
 
     // Draw neighborhood name and icon at the top.
     self.neighborhoodNameLabel.text = self.neighborhoodName;
@@ -161,19 +147,19 @@
     int currentWindDirectionInt = (int)[self.observation windDirection];
     if (currentWindInt != 0)
     {
-        currentWindDirection.autoresizingMask = UIViewAutoresizingNone;
-        currentWindDirection.transform = CGAffineTransformMakeRotation(currentWindDirectionInt*(M_PI/180));
+        _currentWindDirection.autoresizingMask = UIViewAutoresizingNone;
+        _currentWindDirection.transform = CGAffineTransformMakeRotation(currentWindDirectionInt*(M_PI/180));
     }
     else
     {
-        currentWindDirection.hidden = YES;
+        _currentWindDirection.hidden = YES;
     }   
 
 	// Draw description of current condition
     NSString *currentConditionString = [self.observation condition];
 	self.currentConditionDescription.text = currentConditionString;
 
-	BOOL isNight = [weatherDataModel isNight];
+	BOOL isNight = [_weatherDataModel isNight];
 
     // Set background for neighborhood current conditions.
     if (isNight)
@@ -186,18 +172,21 @@
     }
 
 	// Draw image of current conditions
-	[currentConditionImage setImage:[[UtilityMethods sharedInstance] getConditionImage:currentConditionString withIsNight:isNight withIconSize:largeConditionIcon]];
+	[_currentConditionImage setImage:[[UtilityMethods sharedInstance] getConditionImage:currentConditionString withIsNight:isNight withIconSize:largeConditionIcon]];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return [self.arrayOfForecastsForNeighborhood count];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
     return @"Forecast";
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *cellIdentifier = @"NeighborhoodForecastCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -206,7 +195,7 @@
         
         // See documentation as to why we load cells from Nibs this way:
         // http://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/TableView_iPhone/TableViewCells/TableViewCells.html#//apple_ref/doc/uid/TP40007451-CH7-SW20
-        cell = forecastTableViewCell;
+        cell = _forecastTableViewCell;
         self.forecastTableViewCell = nil;
     }
     
@@ -256,7 +245,7 @@
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:3];
     if (indexPath.row == 0)
     {
-        BOOL isNight = [weatherDataModel isNight];
+        BOOL isNight = [_weatherDataModel isNight];
         [imageView setImage:[[UtilityMethods sharedInstance] getConditionImage:scratchForecastConditionNSString withIsNight:isNight withIconSize:mediumConditionIcon]];
     }
     else

@@ -8,19 +8,15 @@
 
 #import "SegmentsController.h"
 
-@interface SegmentsController ()
-@property (nonatomic, retain, readwrite) NSArray                *viewControllers;
-@property (nonatomic, retain, readwrite) UINavigationController *navigationController;
-@end
-
 @implementation SegmentsController
 
-@synthesize viewControllers, navigationController;
-
-- (id)initWithNavigationController:(UINavigationController *)aNavigationController viewControllers:(NSArray *)theViewControllers {
-    if (self = [super init]) {
-        self.navigationController = aNavigationController;
-        self.viewControllers = theViewControllers;
+- (id)initWithNavigationController:(UINavigationController *)aNavigationController
+                   viewControllers:(NSArray *)theViewControllers
+{
+    if (self = [super init])
+    {
+        _navigationController = aNavigationController;
+        _viewControllers = theViewControllers;
     }
     return self;
 }
@@ -29,15 +25,10 @@
     NSUInteger index = aSegmentedControl.selectedSegmentIndex;
     UIViewController * incomingViewController = [self.viewControllers objectAtIndex:index];
     
-    NSArray * theViewControllers = [NSArray arrayWithObject:incomingViewController];
+    NSArray *theViewControllers = [NSArray arrayWithObject:incomingViewController];
     [self.navigationController setViewControllers:theViewControllers animated:NO];
     
     incomingViewController.navigationItem.titleView = aSegmentedControl;
-}
-
-- (void)dealloc {
-    self.viewControllers = nil;
-    self.navigationController = nil;
 }
 
 @end

@@ -11,9 +11,6 @@
 
 @implementation SettingsViewController
 
-@synthesize buildNumberLabel;
-@synthesize degreesControl;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

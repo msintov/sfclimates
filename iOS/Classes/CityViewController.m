@@ -28,13 +28,6 @@
     id<NSObject> _modelObserver;
 }
 
-@synthesize lastUpdated;
-@synthesize settingsDelegate;
-@synthesize weatherDataModel;
-@synthesize cityMapImageView;
-
-@synthesize refreshButton;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -60,7 +53,7 @@
     _modelObserver = [[NSNotificationCenter defaultCenter] addObserverForName:ModelChangedNotificationName
                                                                        object:nil queue:nil
                                                                    usingBlock:^(NSNotification *note) {
-                                                                       weatherDataModel = [[note userInfo] objectForKey:@"newModel"];
+                                                                       _weatherDataModel = [[note userInfo] objectForKey:@"model"];
                                                                        [self drawNewData];
                                                                    }];
 }
@@ -88,11 +81,7 @@
 
 - (void)drawNewData
 {
-	if (!weatherDataModel.loaded)
-    {
-        [cityMapImageView setImage:[UIImage imageNamed:@"cityMapDay"]];
-        return;
-    }
+    NSArray *neighborhoodsArray = [_weatherDataModel neighborhoods];
 
     if (!nameToCondViewDict)
     {
@@ -101,14 +90,13 @@
 
         CGSize tempTextSize = [@"88º" sizeWithAttributes:tempFontAttributes];
 
-        NSArray *neighborhoodsArray = [weatherDataModel neighborhoods];
         for (Neighborhood *neighborhood in neighborhoodsArray)
         {
             NSString *name = [neighborhood name];
             CGRect condRect = [neighborhood rect];
 
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:condRect];
-            [cityMapImageView addSubview:imageView];
+            [_cityMapImageView addSubview:imageView];
             [nameToCondViewDict setObject:imageView forKey:name];
 
             CGSize labelSize = [name sizeWithAttributes:labelFontAttributes];
@@ -120,7 +108,7 @@
             NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:name
                                                                                  attributes:labelFontAttributes];
             [label setAttributedText:attributedText];
-            [cityMapImageView addSubview:label];
+            [_cityMapImageView addSubview:label];
 
             CGRect tempRect = CGRectMake(condRect.origin.x-tempTextSize.width,
                                          condRect.origin.y+(condRect.size.height-tempTextSize.height)/2,
@@ -130,28 +118,32 @@
             NSAttributedString *tempAttributedText = [[NSAttributedString alloc] initWithString:@""
                                                                                      attributes:tempFontAttributes];
             [tempLabel setAttributedText:tempAttributedText];
-            [cityMapImageView addSubview:tempLabel];
+            [_cityMapImageView addSubview:tempLabel];
             [nameToTempViewDict setObject:tempLabel forKey:name];
         }
     }
 
-    BOOL isNight = [weatherDataModel isNight];
-
-    NSArray *observations = [weatherDataModel observations];
+    BOOL isNight = [_weatherDataModel isNight];
 
     // Set city map background.
     if (isNight)
     {
-        [cityMapImageView setImage:[UIImage imageNamed:@"cityMapNight"]];
+        [_cityMapImageView setImage:[UIImage imageNamed:@"cityMapNight"]];
     }
     else
     {
-        [cityMapImageView setImage:[UIImage imageNamed:@"cityMapDay"]];
+        [_cityMapImageView setImage:[UIImage imageNamed:@"cityMapDay"]];
     }
 
-    for (Observation *observation in observations)
+    for (Neighborhood *neighborhood in neighborhoodsArray)
 	{
-        NSString *neighborhoodName = [observation name];
+        Observation *observation = [neighborhood observation];
+        if (!observation)
+        {
+            continue;
+        }
+
+        NSString *neighborhoodName = [neighborhood name];
 
         UILabel *tempLabel = [nameToTempViewDict objectForKey:neighborhoodName];
         if (tempLabel != nil)
@@ -180,7 +172,7 @@
         }
     }
 
-	lastUpdated.text = [[weatherDataModel timeOfLastUpdate] formatDateWithPrefix:@"Updated "];
+	_lastUpdated.text = [[_weatherDataModel timeOfLastUpdate] formatDateWithPrefix:@"Updated "];
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer*)sender
@@ -217,7 +209,7 @@
         NeighborhoodViewController *vc = [[NeighborhoodViewController alloc] init];
 
         vc.neighborhoodName = neighborhoodName;
-        vc.weatherDataModel = weatherDataModel;
+        vc.weatherDataModel = _weatherDataModel;
 
         [self.navigationController pushViewController:vc animated:YES];
 	}

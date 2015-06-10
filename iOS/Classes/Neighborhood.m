@@ -11,14 +11,17 @@
 
 @implementation Neighborhood
 
-@synthesize name, rect;
-
-- (id)initWithName:(NSString*)newName rect:(CGRect)newRect
+- (id)initWithName:(NSString*)name
+              rect:(CGRect)rect
+       observation:(Observation*)observation
+         forecasts:(NSArray*)forecasts
 {
     if (self = [super init])
     {
-        name  = newName;
-        rect  = newRect;
+        _name        = name;
+        _rect        = rect;
+        _observation = observation;
+        _forecasts   = forecasts;
     }
     return self;
 }

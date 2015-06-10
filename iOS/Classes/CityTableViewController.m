@@ -14,11 +14,6 @@
     id<NSObject> _modelObserver;
 }
 
-@synthesize weatherDataModel;
-@synthesize sections;
-@synthesize cityTableViewCell;
-@synthesize settingsDelegate;
-
 /*- (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -40,7 +35,7 @@
     _modelObserver = [[NSNotificationCenter defaultCenter] addObserverForName:ModelChangedNotificationName
                                                                        object:nil queue:nil
                                                                    usingBlock:^(NSNotification *note) {
-                                                                       weatherDataModel = [[note userInfo] objectForKey:@"newModel"];
+                                                                       _weatherDataModel = [[note userInfo] objectForKey:@"model"];
                                                                        [self drawNewData];
                                                                    }];
 }
@@ -66,16 +61,10 @@
 
 - (void)createTableSections
 {
-	NSArray *observations = [weatherDataModel observations];
-    
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-    for (Observation *observation in observations)
+    for (Neighborhood *neighborhood in [_weatherDataModel neighborhoods])
     {
-        NSString *neighborhoodName = [observation name];
-        if (!neighborhoodName)
-        {
-            continue;
-        }
+        NSString *neighborhoodName = [neighborhood name];
         NSString *firstLetter = [neighborhoodName substringToIndex:1];
 
         NSMutableArray *letterArray = [dictionary objectForKey:firstLetter];
@@ -84,7 +73,7 @@
             letterArray = [[NSMutableArray alloc] init];
             [dictionary setObject:letterArray forKey:firstLetter];
         }
-        [letterArray addObject:observation];
+        [letterArray addObject:[neighborhood observation]];
     }
     
     self.sections = dictionary;
@@ -92,9 +81,7 @@
 
 - (void)drawNewData
 {
-	if (!weatherDataModel.loaded) return;
-
-	isNight = [weatherDataModel isNight];
+	isNight = [_weatherDataModel isNight];
     
     [self createTableSections];
 
@@ -122,7 +109,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         [[NSBundle mainBundle] loadNibNamed:@"CityTableViewCell" owner:self options:nil];
-        cell = cityTableViewCell;
+        cell = _cityTableViewCell;
         self.cityTableViewCell = nil;
     }
 

@@ -8,13 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SegmentsController : NSObject {
-    NSArray                *viewControllers;
-    UINavigationController *navigationController;
-}
+@interface SegmentsController : NSObject
 
-@property (nonatomic, retain, readonly) NSArray                * viewControllers;
-@property (nonatomic, retain, readonly) UINavigationController * navigationController;
+@property (nonatomic, retain, readonly) NSArray                *viewControllers;
+@property (nonatomic, retain, readonly) UINavigationController *navigationController;
 
 - (id)initWithNavigationController:(UINavigationController *)aNavigationController viewControllers:(NSArray *)viewControllers;
 

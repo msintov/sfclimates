@@ -10,15 +10,18 @@
 #define sfmcs_Neighborhood_h
 
 #import <Foundation/Foundation.h>
+#import "Observation.h"
 
 @interface Neighborhood : NSObject
 {
 }
 
-@property (nonatomic, retain) NSString *name;
+@property (nonatomic, readonly) NSString *name;
 @property (nonatomic) CGRect rect;
+@property (nonatomic, readonly) Observation *observation;
+@property (nonatomic, readonly) NSArray *forecasts;
 
-- (id)initWithName:(NSString*)name rect:(CGRect)rect;
+- (id)initWithName:(NSString*)name rect:(CGRect)rect observation:(Observation*)observation forecasts:(NSArray*)forecasts;
 
 @end
 

@@ -14,9 +14,7 @@ NSString *ModelChangedNotificationName = @"com.bakerbeachsoftware.sfclimates.mod
 
 @implementation WeatherDataModel
 {
-    NSMutableArray *_neighborhoods;
-    NSMutableDictionary *_observations;
-    NSMutableDictionary *_forecasts;
+    NSDictionary *_neighborhoods;
     int _sunriseInSecondsSinceMidnight;
     int _sunsetInSecondsSinceMidnight;
 }
@@ -25,9 +23,7 @@ NSString *ModelChangedNotificationName = @"com.bakerbeachsoftware.sfclimates.mod
 {
     if (self = [super init])
     {
-        _neighborhoods = [[NSMutableArray alloc] init];
-        _observations  = [[NSMutableDictionary alloc] init];
-        _forecasts     = [[NSMutableDictionary alloc] init];
+        _neighborhoods = @{};
     }
 
     return self;
@@ -43,7 +39,30 @@ NSString *ModelChangedNotificationName = @"com.bakerbeachsoftware.sfclimates.mod
         _sunriseInSecondsSinceMidnight = [weatherDict integerForKey:@"sunrise"];
         _sunsetInSecondsSinceMidnight = [weatherDict integerForKey:@"sunset"];
 
-        _neighborhoods = [[NSMutableArray alloc] init];
+        NSMutableDictionary *observations = [[NSMutableDictionary alloc] init];
+        for (NSDictionary *jsonRecord in [weatherDict arrayForKey:@"observations"])
+        {
+            Observation *observation = [[Observation alloc] initWithJSON:jsonRecord];
+            [observations setObject:observation forKey:[observation name]];
+        }
+        
+        NSMutableDictionary *forecasts = [[NSMutableDictionary alloc] init];
+        for (NSArray *jsonSubArray in [weatherDict arrayForKey:@"forecasts"])
+        {
+            for (NSDictionary *jsonRecord in jsonSubArray)
+            {
+                Forecast *forecast = [[Forecast alloc] initWithJSON:jsonRecord];
+                NSMutableArray *forecastsArray = [forecasts objectForKey:[forecast name]];
+                if (!forecastsArray)
+                {
+                    forecastsArray = [[NSMutableArray alloc] init];
+                    [forecasts setObject:forecastsArray forKey:[forecast name]];
+                }
+                [forecastsArray addObject:forecast];
+            }
+        }
+        
+        NSMutableDictionary *neighborhoods = [[NSMutableDictionary alloc] init];
         for (NSDictionary *jsonRecord in [weatherDict arrayForKey:@"neighborhoods"])
         {
             NSString *name = [jsonRecord stringForKey:@"name"];
@@ -53,56 +72,25 @@ NSString *ModelChangedNotificationName = @"com.bakerbeachsoftware.sfclimates.mod
                                      [jsonRecord doubleForKey:@"width"],
                                      [jsonRecord doubleForKey:@"height"]);
             
-            [_neighborhoods addObject:[[Neighborhood alloc] initWithName:name rect:rect]];
+            Neighborhood *neighborhood = [[Neighborhood alloc] initWithName:name
+                                                                       rect:rect
+                                                                observation:[observations objectForKey:name]
+                                                                  forecasts:[forecasts objectForKey:name]];
+            [neighborhoods setObject:neighborhood forKey:name];
         }
-
-        _observations = [[NSMutableDictionary alloc] init];
-        
-        for (NSDictionary *jsonRecord in [weatherDict arrayForKey:@"observations"])
-        {
-            Observation *observation = [[Observation alloc] initWithJSON:jsonRecord];
-            [_observations setObject:observation forKey:[observation name]];
-        }
-
-        _forecasts = [[NSMutableDictionary alloc] init];
-        for (NSArray *jsonSubArray in [weatherDict arrayForKey:@"forecasts"])
-        {
-            for (NSDictionary *jsonRecord in jsonSubArray)
-            {
-                Forecast *forecast = [[Forecast alloc] initWithJSON:jsonRecord];
-                NSMutableArray *forecastsArray = [_forecasts objectForKey:[forecast name]];
-                if (!forecastsArray)
-                {
-                    forecastsArray = [[NSMutableArray alloc] init];
-                    [_forecasts setObject:forecastsArray forKey:[forecast name]];
-                }
-                [forecastsArray addObject:forecast];
-            }
-        }
-        
-        _loaded = YES;
+        _neighborhoods = neighborhoods;
     }
     return self;
 }
 
 - (NSArray*)neighborhoods
 {
-    return _neighborhoods;
+    return [_neighborhoods allValues];
 }
 
-- (NSArray*)observations
+- (Neighborhood*)neighborhoodByName:(NSString*)name
 {
-    return [_observations allValues];
-}
-
-- (Observation*)observationForNeighborhood:(NSString*)name
-{
-    return [_observations objectForKey:name];
-}
-
-- (NSArray*)forecastsForNeighborhood:(NSString*)name
-{
-    return [_forecasts objectForKey:name];
+    return [_neighborhoods objectForKey:name];
 }
 
 -(BOOL)isNight

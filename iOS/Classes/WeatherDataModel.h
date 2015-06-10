@@ -17,13 +17,10 @@ extern NSString *ModelChangedNotificationName;
 
 @property (nonatomic, retain) NSDate *timeOfLastUpdate;
 @property (nonatomic, retain) NSDate *timeOfNextPull;
-@property (nonatomic) BOOL loaded;
 
 - (id)initWithJSON:(NSDictionary*)weatherDict;
 - (NSArray*)neighborhoods;
-- (NSArray*)observations;
-- (Observation*)observationForNeighborhood:(NSString*)name;
-- (NSArray*)forecastsForNeighborhood:(NSString*)name;
+- (Neighborhood*)neighborhoodByName:(NSString*)name;
 - (BOOL)isNight;
 
 @end
