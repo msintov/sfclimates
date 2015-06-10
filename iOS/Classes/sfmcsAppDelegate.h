@@ -11,7 +11,7 @@
 #import "CityViewController.h"
 #include "SegmentsController.h"
 
-@interface sfmcsAppDelegate : NSObject <UIApplicationDelegate, WeatherDataConnectionDelegate, ShowSettings> {
+@interface sfmcsAppDelegate : NSObject <UIApplicationDelegate, ShowSettings> {
 	WeatherDataModel *weatherDataModel;
 	NSTimer *networkRequestTimer;
 	int numConsecutiveNetworkRequestFailures;

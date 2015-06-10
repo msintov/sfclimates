@@ -9,25 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-extern NSString *bayviewNSString;
-extern NSString *castroNSString;
-extern NSString *coleValleyNSString;
-extern NSString *financialDistrictNSString;
-extern NSString *glenParkNSString;
-extern NSString *hayesValleyNSString;
-extern NSString *innerRichmondNSString;
-extern NSString *lakeMercedNSString;
-extern NSString *missionNSString;
-extern NSString *noeValleyNSString;
-extern NSString *northBeachNSString;
-extern NSString *outerRichmondNSString;
-extern NSString *outerSunsetNSString;
-extern NSString *potreroHillNSString;
-extern NSString *presidioNSString;
-extern NSString *somaNSString;
-extern NSString *twinPeaksNSString;
-extern NSString *westPortalNSString;
-
 enum {
     smallConditionIcon,
     mediumConditionIcon,

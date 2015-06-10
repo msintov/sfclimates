@@ -15,14 +15,13 @@
 
 @interface WeatherDataModel : NSObject {
  @private
-	NSURLConnection *myConnection;
-	NSString *pathToWeatherDataPlist;
-	NSMutableData *receivedData;
+    BOOL _downloadInProgress;
+    NSString *pathToWeatherDataPlist;
 }
 
 @property (nonatomic, assign) id <WeatherDataConnectionDelegate> weatherDataConnectionDelegate;
 @property (nonatomic, retain) NSDictionary *weatherDict;
 
-- (void)retrieveWeatherDataFromServer;
+- (void)downloadWeatherDataWithCompletionHandler:(void (^)(NSError *))completionHandler;
 
 @end

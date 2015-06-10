@@ -14,22 +14,32 @@
 @end
 
 @implementation WeatherDataModel
+{
+    NSURLSession *_urlSession;
+}
 
 @synthesize pathToWeatherDataPlist, weatherDataConnectionDelegate, weatherDict;
 
-- (void)dealloc {
-    self.weatherDict = nil;
-}
+- (id)init
+{
+    if (self = [super init])
+    {
+        self.weatherDict = [NSDictionary dictionaryWithContentsOfFile:[self pathToWeatherDataPlist]];
+        
+        if (!self.weatherDict) {
+            DLog(@"Got nil weather dict. Either cached plist does not yet exist(such as upon first app launch), could not be opened, contents could not be parsed into an array, or other failure.");
+        }
+        
+        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+        sessionConfig.timeoutIntervalForRequest  = 20.0;
+        sessionConfig.timeoutIntervalForResource = 20.0;
+        sessionConfig.HTTPMaximumConnectionsPerHost = 1;
 
-- (id)init {
-    self = [super init];
+        _urlSession = [NSURLSession sessionWithConfiguration:sessionConfig
+                                                    delegate:nil
+                                               delegateQueue:nil];
+    }
 
-	self.weatherDict = [NSDictionary dictionaryWithContentsOfFile:[self pathToWeatherDataPlist]];
-    
-	if (!self.weatherDict) {
-		DLog(@"Got nil weather dict. Either cached plist does not yet exist(such as upon first app launch), could not be opened, contents could not be parsed into an array, or other failure.");
-	}    
-    
     return self;
 }
 
@@ -37,96 +47,63 @@
 {
 	if (!pathToWeatherDataPlist)
 	{
-		// Retrive ~/Documents directory
+		// Retrieve ~/Documents directory
 		NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 		pathToWeatherDataPlist = [rootPath stringByAppendingPathComponent:@"WeatherData.plist"];
 	}
 	return pathToWeatherDataPlist;
 }
 
-- (void)releaseNetworkInstanceVariables
+- (void)downloadWeatherDataWithCompletionHandler:(void (^)(NSError *))completionHandler
 {
-    myConnection = nil;
-    receivedData = nil;
-}
+    UIApplication *app = [UIApplication sharedApplication];
 
-- (void)retrieveWeatherDataFromServer
-{
-	// Check to ensure we don't already have a connection in progress.
+    // Check to ensure we don't already have a connection in progress.
 	// Note that this function has a race condition between where
 	// myConnection is checked and where it is set, so if we ever call
 	// this on a thread, need some locking in here.
-	if (myConnection) return;
+	if (_downloadInProgress)
+    {
+        return;
+    }
 
 	// Create the request with 20 second timeout.
-	// IMPORTANT: Must replace the url with a valid url pointing to properly formatted JSON. Contact Michelle Sintov for more details.
-	NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.url.com/current-observations.json"]
-											   cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-										   timeoutInterval:20.0];
-
-	UIApplication *app = [UIApplication sharedApplication]; 
-	app.networkActivityIndicatorVisible = YES; 
-
-	// create the connection with the request and start loading the data
-	myConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-	if (myConnection) {
-		receivedData = [NSMutableData data];
-	} else {
-		DLog(@"NSURLConnection could not be initialized in retrieveWeatherDataFromServer");
-	}
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-	[receivedData appendData:data];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-	// This method is called when the server has determined that it
-	// has enough information to create the NSURLResponse.
-	//
-	// It can be called multiple times, for example in the case of a
-	// redirect, so each time we reset the data.
-	[receivedData setLength:0];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-	UIApplication *app = [UIApplication sharedApplication]; 
-	app.networkActivityIndicatorVisible = NO; 
-
-	NSString *stringFromServer = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-	if (stringFromServer == nil)
-	{
-		DLog(@"Could not init NSString with network data using initWithData: encoding:.");
-		return;
-	}
-
-    self.weatherDict = [stringFromServer JSONValue];
-    if (!self.weatherDict) return;
-    
-	// Persist data to .plist file.
-	if (![self.weatherDict writeToFile:[self pathToWeatherDataPlist] atomically:YES])
-	{
-		DLog(@"Failed to write server data to property list. Data from server was: %@", stringFromServer);
-		return;
-	}
-    
-	[self.weatherDataConnectionDelegate weatherDataConnectionDidFinishLoading];
-	[self releaseNetworkInstanceVariables];
-	
-	return;
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-	UIApplication *app = [UIApplication sharedApplication]; 
-	app.networkActivityIndicatorVisible = NO; 
-	
-	[self.weatherDataConnectionDelegate weatherDataConnectionDidFail];
-	[self releaseNetworkInstanceVariables];
-
-	DLog(@"Connection failed in didFailWithError. Error - %@", [error localizedDescription]);
+    // IMPORTANT: Must replace the url with a valid url pointing to properly formatted JSON. Contact Michelle Sintov for more details.
+    NSURL *url = [NSURL URLWithString:@"http://www.url.com/current-observations.json"];
+    NSURLSessionTask *task = [_urlSession dataTaskWithURL:url
+                                        completionHandler:^(NSData *data,
+                                                            NSURLResponse *response,
+                                                            NSError *error) {
+                                            app.networkActivityIndicatorVisible = NO;
+                                            _downloadInProgress = NO;
+                                            if (error != nil)
+                                            {
+                                                DLog(@"Connection failed in didFailWithError. Error - %@", [error localizedDescription]);
+                                            }
+                                            else
+                                            {
+                                                NSString *stringFromServer = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                                                if (stringFromServer == nil)
+                                                {
+                                                    DLog(@"Could not init NSString with network data using initWithData: encoding:.");
+                                                    return;
+                                                }
+                                                
+                                                self.weatherDict = [stringFromServer JSONValue];
+                                                if (!self.weatherDict) return;
+                                                
+                                                // Persist data to .plist file.
+                                                if (![self.weatherDict writeToFile:[self pathToWeatherDataPlist] atomically:YES])
+                                                {
+                                                    DLog(@"Failed to write server data to property list. Data from server was: %@", stringFromServer);
+                                                    return;
+                                                }
+                                            }
+                                            completionHandler(error);
+                                        }];
+    _downloadInProgress = YES;
+    app.networkActivityIndicatorVisible = YES;
+    [task resume];
 }
 
 @end

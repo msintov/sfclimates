@@ -32,11 +32,6 @@
 
 @synthesize refreshButton;
 
-- (void)dealloc {
-    self.weatherDataModel = nil;
-    self.settingsDelegate = nil;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -190,7 +185,9 @@
     // If tap point is within the refresh button, refresh the data
     if (CGRectContainsPoint([self.refreshButton frame], [sender locationInView:self.view]))
     {
-        [self.weatherDataModel retrieveWeatherDataFromServer];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"downloadWeatherData"
+                                                            object:self
+                                                          userInfo:nil];
         return;
     }
 

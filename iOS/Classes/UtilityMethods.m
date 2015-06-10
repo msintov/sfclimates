@@ -8,25 +8,6 @@
 
 #import "UtilityMethods.h"
 
-NSString *bayviewNSString = @"Bayview";
-NSString *castroNSString = @"Castro";
-NSString *coleValleyNSString = @"Cole Valley";
-NSString *financialDistrictNSString = @"Financial District";
-NSString *glenParkNSString = @"Glen Park";
-NSString *hayesValleyNSString = @"Hayes Valley";
-NSString *innerRichmondNSString = @"Inner Richmond";
-NSString *lakeMercedNSString = @"Lake Merced";
-NSString *missionNSString = @"Mission";
-NSString *noeValleyNSString = @"Noe Valley";
-NSString *northBeachNSString = @"North Beach";
-NSString *outerRichmondNSString = @"Outer Richmond";
-NSString *outerSunsetNSString = @"Outer Sunset";
-NSString *potreroHillNSString = @"Potrero Hill";
-NSString *presidioNSString = @"Presidio";
-NSString *somaNSString = @"SOMA";
-NSString *twinPeaksNSString = @"Twin Peaks";
-NSString *westPortalNSString = @"West Portal";
-
 static NSString *const USER_DEFAULT_TEMP_UNITS = @"temperatureUnits";
 
 @interface UtilityMethods()

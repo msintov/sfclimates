@@ -33,12 +33,8 @@
 #pragma mark Application lifecycle
 
 
-- (void)dealloc {
-	self.navigationController = nil;
-    self.segmentsController = nil;
-    self.segmentedControl = nil;
-    self.weatherDataModel = nil;
-
+- (void)dealloc
+{
 	[self invalidateTimer];
 }
 
@@ -64,8 +60,6 @@
                               action:@selector(indexDidChangeForSegmentedControl:)
                     forControlEvents:UIControlEventValueChanged];
     
-    self.weatherDataModel.weatherDataConnectionDelegate = self;
-
 	[self requestServerData];
     
     [self firstUserExperience];
@@ -74,6 +68,11 @@
 
 	[window addSubview:self.navigationController.view];
 	[self.window makeKeyAndVisible];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(requestServerData)
+                                                 name:@"downloadWeatherData"
+                                               object:nil];
 
     return YES;
 }
@@ -94,7 +93,30 @@
 	// we will use the data we cached in the plist on the previous run of the app.
 	//
 	// If no property list is found, no data will be shown.
-	[self.weatherDataModel retrieveWeatherDataFromServer];
+    [self.weatherDataModel downloadWeatherDataWithCompletionHandler:^(NSError *error) {
+        if (error != nil)
+        {
+            numConsecutiveNetworkRequestFailures++;
+            
+            // Try again but with exponential backoff.
+            [self scheduleNetworkRequest:((1+((numConsecutiveNetworkRequestFailures - 1) * 2))*60)];
+        }
+        else
+        {
+            // Tell the visible view controller to update its view, since we have new data.
+            id <RequestRedrawDelegate> delegate = (id)self.navigationController.visibleViewController;
+            [delegate drawNewData];
+            
+            numConsecutiveNetworkRequestFailures = 0;
+            
+            // Retrieve next time to retrieve weather data and schedule the timer.
+            NSTimeInterval timeOfNextPullInSecondsSince1970 = [[self.weatherDataModel.weatherDict objectForKey:@"timeOfNextPull"] doubleValue];
+            NSDate *dateOfNextPullInGMT = [NSDate dateWithTimeIntervalSince1970:timeOfNextPullInSecondsSince1970];
+            NSTimeInterval timeOfNextPullInSecondsFromNow = [dateOfNextPullInGMT timeIntervalSinceNow];
+            
+            [self scheduleNetworkRequest:timeOfNextPullInSecondsFromNow];
+        }
+    }];
 }
 
 - (void)scheduleNetworkRequest:(NSTimeInterval)timeOfNextPullInSecondsFromNow
@@ -106,30 +128,6 @@
 	}
     			  
 	networkRequestTimer = [NSTimer scheduledTimerWithTimeInterval:timeOfNextPullInSecondsFromNow target:self selector:@selector(requestServerData) userInfo:nil repeats:NO];
-}
-
-- (void)weatherDataConnectionDidFinishLoading
-{
-	// Tell the visible view controller to update its view, since we have new data.
-	id <RequestRedrawDelegate> delegate = (id)self.navigationController.visibleViewController;
-	[delegate drawNewData];
-
-	numConsecutiveNetworkRequestFailures = 0;
-
-	// Retrieve next time to retrieve weather data and schedule the timer.
-	NSTimeInterval timeOfNextPullInSecondsSince1970 = [[self.weatherDataModel.weatherDict objectForKey:@"timeOfNextPull"] doubleValue];
-	NSDate *dateOfNextPullInGMT = [NSDate dateWithTimeIntervalSince1970:timeOfNextPullInSecondsSince1970];
-	NSTimeInterval timeOfNextPullInSecondsFromNow = [dateOfNextPullInGMT timeIntervalSinceNow];
-	
-	[self scheduleNetworkRequest:timeOfNextPullInSecondsFromNow];
-}
-
-- (void)weatherDataConnectionDidFail
-{
-	numConsecutiveNetworkRequestFailures++;
-	
-	// Try again but with exponential backoff.
-	[self scheduleNetworkRequest:((1+((numConsecutiveNetworkRequestFailures - 1) * 2))*60)];
 }
 
 - (void)showSettings
