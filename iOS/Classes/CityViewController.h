@@ -13,12 +13,12 @@
 @interface CityViewController : UIViewController <RequestRedrawDelegate>
 {
 	NSDictionary *colorToNeighborhoodHitTestDict;
-    NSDictionary *nameToTempViewDict;
-    NSDictionary *nameToCondViewDict;
+    NSMutableDictionary *nameToTempViewDict;
+    NSMutableDictionary *nameToCondViewDict;
 }
 
 @property(nonatomic,retain) IBOutlet UILabel*               lastUpdated;
-@property(nonatomic, retain) id<ShowSettings>               settingsDelegate;
+@property(nonatomic,retain) id<ShowSettings>               settingsDelegate;
 
 @property(nonatomic,retain) IBOutlet UIImageView*           cityMapImageView;
 

@@ -1,4 +1,4 @@
-    //
+//
 //  CityViewController.m
 //  sfmcs
 //
@@ -20,47 +20,15 @@
 @end
 
 @implementation CityViewController
+{
+    NSDictionary *tempFontAttributes;
+    NSDictionary *labelFontAttributes;
+}
 
 @synthesize lastUpdated;
 @synthesize settingsDelegate;
 @synthesize weatherDataModel;
 @synthesize cityMapImageView;
-@synthesize tempBayview;
-@synthesize tempCastro;
-@synthesize tempColeValley;
-@synthesize tempFinancialDistrict;
-@synthesize tempGlenPark;
-@synthesize tempHayesValley;
-@synthesize tempInnerRichmond;
-@synthesize tempLakeMerced;
-@synthesize tempMission;
-@synthesize tempNoeValley;
-@synthesize tempNorthBeach;
-@synthesize tempOuterRichmond;
-@synthesize tempOuterSunset;
-@synthesize tempPotreroHill;
-@synthesize tempPresidio;
-@synthesize tempSOMA;
-@synthesize tempTwinPeaks;
-@synthesize tempWestPortal;
-@synthesize condBayview;
-@synthesize condCastro;
-@synthesize condColeValley;
-@synthesize condFinancialDistrict;
-@synthesize condGlenPark;
-@synthesize condHayesValley;
-@synthesize condInnerRichmond;
-@synthesize condLakeMerced;
-@synthesize condMission;
-@synthesize condNoeValley;
-@synthesize condNorthBeach;
-@synthesize condOuterRichmond;
-@synthesize condOuterSunset;
-@synthesize condPotreroHill;
-@synthesize condPresidio;
-@synthesize condSOMA;
-@synthesize condTwinPeaks;
-@synthesize condWestPortal;
 
 @synthesize refreshButton;
 
@@ -74,53 +42,22 @@
     [super viewDidLoad];
 
     // Add info button
-    UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight]; 
+    UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [infoButton addTarget:self.settingsDelegate action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
-    
+
     // Add single tap gesture
 	UITapGestureRecognizer *tapgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
 	[self.view addGestureRecognizer:tapgr];
-    
-    nameToCondViewDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                          self.condBayview, bayviewNSString,
-                          self.condCastro, castroNSString,
-                          self.condColeValley, coleValleyNSString,
-                          self.condFinancialDistrict, financialDistrictNSString,
-                          self.condGlenPark, glenParkNSString,
-                          self.condHayesValley, hayesValleyNSString,
-                          self.condInnerRichmond, innerRichmondNSString,
-                          self.condLakeMerced, lakeMercedNSString,
-                          self.condMission, missionNSString,
-                          self.condNoeValley, noeValleyNSString,
-                          self.condNorthBeach, northBeachNSString,
-                          self.condOuterRichmond, outerRichmondNSString,
-                          self.condOuterSunset, outerSunsetNSString,
-                          self.condPotreroHill, potreroHillNSString,
-                          self.condPresidio, presidioNSString,
-                          self.condSOMA, somaNSString,
-                          self.condTwinPeaks, twinPeaksNSString,
-                          self.condWestPortal, westPortalNSString, nil];
-                          
-    nameToTempViewDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                          self.tempBayview, bayviewNSString,
-                          self.tempCastro, castroNSString,
-                          self.tempColeValley, coleValleyNSString,
-                          self.tempFinancialDistrict, financialDistrictNSString,
-                          self.tempGlenPark, glenParkNSString,
-                          self.tempHayesValley, hayesValleyNSString,
-                          self.tempInnerRichmond, innerRichmondNSString,
-                          self.tempLakeMerced, lakeMercedNSString,
-                          self.tempMission, missionNSString,
-                          self.tempNoeValley, noeValleyNSString,
-                          self.tempNorthBeach, northBeachNSString,
-                          self.tempOuterRichmond, outerRichmondNSString,
-                          self.tempOuterSunset, outerSunsetNSString,
-                          self.tempPotreroHill, potreroHillNSString,
-                          self.tempPresidio, presidioNSString,
-                          self.tempSOMA, somaNSString,
-                          self.tempTwinPeaks, twinPeaksNSString,
-                          self.tempWestPortal, westPortalNSString, nil];
+
+    labelFontAttributes = @{
+        NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:10.0],
+        NSForegroundColorAttributeName: [UIColor colorWithWhite: 0.70 alpha:1]
+    };
+    tempFontAttributes = @{
+        NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0],
+        NSForegroundColorAttributeName: [UIColor colorWithWhite: 1.0 alpha:1]
+    };
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -131,52 +68,13 @@
 }
 
 - (void)viewDidUnload {
-    
+
     [super viewDidUnload];
 
     self.lastUpdated = nil;
     self.cityMapImageView = nil;
-    
-    self.tempBayview = nil;
-    self.tempCastro = nil;
-    self.tempColeValley = nil;
-    self.tempFinancialDistrict = nil;
-    self.tempGlenPark = nil;
-    self.tempHayesValley = nil;
-    self.tempInnerRichmond = nil;
-    self.tempLakeMerced = nil;
-    self.tempMission = nil;
-    self.tempNoeValley = nil;
-    self.tempNorthBeach = nil;
-    self.tempOuterRichmond = nil;
-    self.tempOuterSunset = nil;
-    self.tempPotreroHill = nil;
-    self.tempPresidio = nil;
-    self.tempSOMA = nil;
-    self.tempTwinPeaks = nil;
-    self.tempWestPortal = nil;
-    
-    self.condBayview = nil;
-    self.condCastro = nil;
-    self.condColeValley = nil;
-    self.condFinancialDistrict = nil;
-    self.condGlenPark = nil;
-    self.condHayesValley = nil;
-    self.condInnerRichmond = nil;
-    self.condLakeMerced = nil;
-    self.condMission = nil;
-    self.condNoeValley = nil;
-    self.condNorthBeach = nil;
-    self.condOuterRichmond = nil;
-    self.condOuterSunset = nil;
-    self.condPotreroHill = nil;
-    self.condPresidio = nil;
-    self.condSOMA = nil;
-    self.condTwinPeaks = nil;
-    self.condWestPortal = nil;
-    
     self.refreshButton = nil;
-    
+
     nameToTempViewDict = nil;
     nameToCondViewDict = nil;
 }
@@ -189,10 +87,54 @@
         return;
     }
 
+    if (!nameToCondViewDict)
+    {
+        nameToCondViewDict = [[NSMutableDictionary alloc] init];
+        nameToTempViewDict = [[NSMutableDictionary alloc] init];
+
+        CGSize tempTextSize = [@"88º" sizeWithAttributes:tempFontAttributes];
+
+        NSArray *neighborhoodsArray = [weatherDict objectForKey:@"neighborhoods"];
+        for (NSDictionary *neighborhood in neighborhoodsArray)
+        {
+            NSString *name = [neighborhood objectForKey:@"name"];
+
+            CGRect condRect = CGRectMake([[neighborhood objectForKey:@"x"] doubleValue],
+                                         [[neighborhood objectForKey:@"y"] doubleValue],
+                                         [[neighborhood objectForKey:@"width"] doubleValue],
+                                         [[neighborhood objectForKey:@"height"] doubleValue]);
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:condRect];
+            [cityMapImageView addSubview:imageView];
+            [nameToCondViewDict setObject:imageView forKey:name];
+
+            CGSize labelSize = [name sizeWithAttributes:labelFontAttributes];
+            CGFloat centerX = condRect.origin.x+condRect.size.width/2;
+            CGRect labelRect = CGRectMake(centerX-labelSize.width/2, condRect.origin.y+condRect.size.height*7/8,
+                                          labelSize.width, labelSize.height);
+            UILabel *label = [[UILabel alloc] initWithFrame:(CGRect)labelRect];
+
+            NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:name
+                                                                                 attributes:labelFontAttributes];
+            [label setAttributedText:attributedText];
+            [cityMapImageView addSubview:label];
+
+            CGRect tempRect = CGRectMake(condRect.origin.x-tempTextSize.width,
+                                         condRect.origin.y+(condRect.size.height-tempTextSize.height)/2,
+                                         tempTextSize.width, tempTextSize.height);
+            UILabel *tempLabel = [[UILabel alloc] initWithFrame:(CGRect)tempRect];
+
+            NSAttributedString *tempAttributedText = [[NSAttributedString alloc] initWithString:@""
+                                                                                     attributes:tempFontAttributes];
+            [tempLabel setAttributedText:tempAttributedText];
+            [cityMapImageView addSubview:tempLabel];
+            [nameToTempViewDict setObject:tempLabel forKey:name];
+        }
+    }
+
 	BOOL isNight = [[UtilityMethods sharedInstance] isNight:weatherDict];
 
 	NSArray *observationsNSArray = [weatherDict objectForKey:@"observations"];
-    
+
     // Set city map background.
     if (isNight)
     {
@@ -213,8 +155,14 @@
             // Get temperature string
             int tempInt = [[neighborhoodNSDictionary objectForKey:@"current_temperature"] intValue];
             NSString *temperatureString = [[UtilityMethods sharedInstance] makeTemperatureString:tempInt showDegree:YES];
-            
-            tempLabel.text = temperatureString;
+
+            CGFloat right = CGRectGetMaxX(tempLabel.frame);
+            tempLabel.attributedText = [[NSAttributedString alloc] initWithString:temperatureString attributes:tempFontAttributes];
+            [tempLabel sizeToFit];
+
+            CGRect frame = tempLabel.frame;
+            frame.origin.x = right - frame.size.width * 15/16;
+            [tempLabel setFrame:frame];
         }
 
 		UIImageView* imageView = [nameToCondViewDict objectForKey:neighborhoodName];
@@ -223,11 +171,11 @@
             // Get condition image
             NSString *conditionString = [neighborhoodNSDictionary objectForKey:@"current_condition"];
             UIImage *conditionImage = [[UtilityMethods sharedInstance] getConditionImage:conditionString withIsNight:isNight withIconSize:smallConditionIcon];
-            
+
             [imageView setImage:conditionImage];
         }
     }
-    
+
 	NSDate *date = [NSDate dateWithTimeIntervalSince1970:[[weatherDict objectForKey:@"timeOfLastUpdate"] doubleValue]];
 	lastUpdated.text =  [[UtilityMethods sharedInstance] getFormattedDate:date prependString:@"Updated "];
 }
@@ -238,20 +186,20 @@
         // gesture occured in navigation bar, so return;
         return;
     }
-    
+
     // If tap point is within the refresh button, refresh the data
     if (CGRectContainsPoint([self.refreshButton frame], [sender locationInView:self.view]))
     {
         [self.weatherDataModel retrieveWeatherDataFromServer];
         return;
     }
-    
+
 	if (sender.state == UIGestureRecognizerStateEnded)
 	{
 		// Get the patchwork map color at the tap location and use it to figure
 		// out which neighborhood was selected based on color.
 		CGPoint tapPoint = [sender locationInView:self.view];
-        
+
 		NSString *colorAsString = [self getPixelColorAtPointAsHexString:tapPoint];
 		if (colorAsString == nil) return;
 		
@@ -260,12 +208,12 @@
         {
             return;
         }
-        
+
         NeighborhoodViewController *vc = [[NeighborhoodViewController alloc] init];
-        
+
         vc.neighborhoodName = neighborhoodName;
         vc.weatherDataModel = weatherDataModel;
-        
+
         [self.navigationController pushViewController:vc animated:YES];
 	}
 }
@@ -277,7 +225,7 @@
 /*- (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
+
     // Release any cached data, images, etc. that aren't in use.
 }
 */
@@ -347,7 +295,7 @@
     {
         return nil;
     }
-    
+
     // Scale the tap point to the image size
     CGSize viewSize = [self.view bounds].size;
     CGSize imageBounds = [patchWorkMap size];
@@ -376,11 +324,11 @@
     unsigned char *data = (unsigned char*)CGBitmapContextGetData(cgctx);
     if (data != NULL)
     {
-		//offset locates the pixel in the data from x,y. 
+		//offset locates the pixel in the data from x,y.
 		//4 for 4 bytes of data per pixel, w is width of one row of data.
 		//int offset = 4*((w*round(point.y))+round(point.x));
 		int offset = ((w*round(point.y))+round(point.x));
-        unsigned char *pixelPtr = data+offset*4;        
+        unsigned char *pixelPtr = data+offset*4;
 		colorAsString = [NSString stringWithFormat:@"%02X%02X%02X", pixelPtr[1], pixelPtr[2], pixelPtr[3]];
 		//DLog(@"%@", colorAsString);
 	}
