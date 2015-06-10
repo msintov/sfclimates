@@ -9,6 +9,7 @@
 #import "CityViewController.h"
 #import "Neighborhood.h"
 #import "NeighborhoodViewController.h"
+#import "NSDate+Formatters.h"
 
 #define ZOOM_STEP 1.5
 
@@ -169,7 +170,7 @@
         }
     }
 
-	lastUpdated.text = [[UtilityMethods sharedInstance] getFormattedDate:[weatherDataModel timeOfLastUpdate] prependString:@"Updated "];
+	lastUpdated.text = [[weatherDataModel timeOfLastUpdate] formatDateWithPrefix:@"Updated "];
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer*)sender

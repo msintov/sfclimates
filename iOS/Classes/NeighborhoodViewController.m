@@ -7,6 +7,7 @@
 //
 
 #import "NeighborhoodViewController.h"
+#import "NSDate+Formatters.h"
 
 @implementation NeighborhoodViewController
 
@@ -54,10 +55,10 @@
             // Retrieve the weekday name from the json.
             NSDictionary *forecastDict = [neighborhoodNSArray objectAtIndex:0];
             NSDate *date = [NSDate dateWithTimeIntervalSince1970:[[forecastDict objectForKey:@"epoch"] doubleValue]];
-            NSString *weekdayJSON = [[UtilityMethods sharedInstance] getDay:date];
+            NSString *weekdayJSON = [date weekdayString];
             
             // Compute the current weekday name according to the device time.
-            NSString *weekdayDevice = [[UtilityMethods sharedInstance] getDay:[NSDate date]];
+            NSString *weekdayDevice = [[NSDate date] weekdayString];
             
             // Bump the range up by one day if server data is indeed old.
             if ([weekdayJSON localizedCaseInsensitiveCompare:weekdayDevice] != NSOrderedSame)
@@ -225,7 +226,7 @@
     else
     {
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:[[forecastDict objectForKey:@"epoch"] doubleValue]];
-        label.text = [[UtilityMethods sharedInstance] getDay:date];
+        label.text = [date weekdayString];
     }
     
     // TAG 2: Condition text

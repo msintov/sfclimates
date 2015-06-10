@@ -127,43 +127,6 @@ static UtilityMethods *sharedUtilityMethodsInstance = nil;
 	return [UIImage imageNamed:conditionImageName];
 }
 
-- (NSString*)getFormattedDate:(NSDate*)myDate prependString:(NSString*)prependStringValue
-{
-    if (!dateFormatterForDate)
-    {
-        dateFormatterForDate = [[NSDateFormatter alloc] init];
-        [dateFormatterForDate setDateStyle:NSDateFormatterMediumStyle];
-        [dateFormatterForDate setTimeStyle:NSDateFormatterShortStyle];
-    }
-
-	NSString *dateString = [NSString string];
-
-	@try {
-		if (prependStringValue)
-			dateString = [dateString stringByAppendingString:prependStringValue];
-		
-		dateString = [dateString stringByAppendingString:[dateFormatterForDate stringFromDate:myDate]];
-	}
-	@catch (NSException *exception) {
-		DLog(@"in getFormattedDate, stringByAppendingString: Caught %@: %@", [exception name], [exception reason]);
-	}
-
-	return dateString;
-}
-
-- (NSString*)getDay:(NSDate*)myDate
-{
-    if (!dateFormatterForDay)
-    {
-        dateFormatterForDay= [[NSDateFormatter alloc] init];
-        [dateFormatterForDay setDateFormat:@"EEEE"];
-    }
-    
-    NSString *dayString = [dateFormatterForDay stringFromDate:myDate];
-
-    return dayString;
-}
-
 - (NSDictionary*)conditionImageMappingDict
 {
 	if (!conditionImageMappingDict)

@@ -32,14 +32,11 @@ enum {
 @interface UtilityMethods : NSObject {
 	NSDictionary *conditionImageMappingDict;
     NSDateFormatter *dateFormatterForDate;
-    NSDateFormatter *dateFormatterForDay;
     BOOL celsiusMode;
 }
 
 + (UtilityMethods*)sharedInstance;
 - (UIImage*)getConditionImage:(NSString*)conditionString withIsNight:(BOOL)isNight withIconSize:(ConditionIconSize)conditionIconSize;
-- (NSString*)getFormattedDate:(NSDate*)myDate prependString:(NSString*)prependStringValue;
-- (NSString*)getDay:(NSDate*)myDate;
 - (NSString*)makeTemperatureString:(int)temperatureInt showDegree:(BOOL)showDegree;
 - (BOOL)isCelsiusMode;
 - (void)setCelsiusMode:(BOOL)newCelsiusMode;

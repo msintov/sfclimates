@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WeatherDataModel.h"
 #import "CityViewController.h"
-#include "SegmentsController.h"
+#import "SegmentsController.h"
 
 @interface sfmcsAppDelegate : NSObject <UIApplicationDelegate, ShowSettings> {
 	WeatherDataModel *weatherDataModel;
