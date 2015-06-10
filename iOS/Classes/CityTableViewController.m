@@ -20,8 +20,6 @@
     self.weatherDataModel = nil;
     self.sections = nil;
     self.settingsDelegate = nil;
-    
-	[super dealloc];
 }
 
 /*- (void)didReceiveMemoryWarning
@@ -40,7 +38,7 @@
     // Add info button
     UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight]; 
     [infoButton addTarget:self.settingsDelegate action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:infoButton] autorelease];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -60,39 +58,29 @@
 	NSArray *observationsNSArray = [weatherDict objectForKey:@"observations"];
     
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-    BOOL found;
     for (NSDictionary *neighborhoodNSDictionary in observationsNSArray)
     {
-		NSString *c = [[neighborhoodNSDictionary objectForKey:@"name"] substringToIndex:1];
-        
-        found = NO;
-        for (NSString *str in [dictionary allKeys])
+        NSString *neighborhoodName = [neighborhoodNSDictionary objectForKey:@"name"];
+        if (!neighborhoodName)
         {
-            if ([str isEqualToString:c])
-            {
-                found = YES;
-            }
+            continue;
         }
-        
-        if (!found)
+        NSString *firstLetter = [neighborhoodName substringToIndex:1];
+
+        NSMutableArray *letterArray = [dictionary objectForKey:firstLetter];
+        if (!letterArray)
         {
-            NSMutableArray * mutableArray = [[NSMutableArray alloc] init];
-            [dictionary setObject:mutableArray forKey:c];
-            [mutableArray release];
+            letterArray = [[NSMutableArray alloc] init];
+            [dictionary setObject:letterArray forKey:firstLetter];
         }
-    }
-    
-    // Loop again and sort data into their respective keys
-    for (NSDictionary *neighborhoodNSDictionary in observationsNSArray)
-    {
-        [[dictionary objectForKey:[[neighborhoodNSDictionary objectForKey:@"name"] substringToIndex:1]] addObject:neighborhoodNSDictionary];
+        [letterArray addObject:neighborhoodNSDictionary];
     }
     
     self.sections = dictionary;
-    [dictionary release];
 }
 
-- (void)drawNewData {
+- (void)drawNewData
+{
     NSDictionary *weatherDict = weatherDataModel.weatherDict;
 	if (!weatherDict) return;
 
@@ -149,7 +137,7 @@
 {
     NSDictionary *neighborhoodDict = [[self.sections valueForKey:[[[self.sections allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
 
-    NeighborhoodViewController *vc = [[[NeighborhoodViewController alloc] init] autorelease];
+    NeighborhoodViewController *vc = [[NeighborhoodViewController alloc] init];
      
     vc.neighborhoodName = [neighborhoodDict objectForKey:@"name"];
     vc.weatherDataModel = self.weatherDataModel;

@@ -67,10 +67,6 @@
 - (void)dealloc {
     self.weatherDataModel = nil;
     self.settingsDelegate = nil;
-    
-	[colorToNeighborhoodHitTestDict release];
-    
-	[super dealloc];
 }
 
 - (void)viewDidLoad
@@ -80,52 +76,51 @@
     // Add info button
     UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight]; 
     [infoButton addTarget:self.settingsDelegate action:@selector(showSettings) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:infoButton] autorelease];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
     
     // Add single tap gesture
 	UITapGestureRecognizer *tapgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
 	[self.view addGestureRecognizer:tapgr];
-	[tapgr release];
     
-    nameToCondViewDict = [[NSDictionary dictionaryWithObjectsAndKeys:
-                           self.condBayview, bayviewNSString,
-                           self.condCastro, castroNSString,
-                           self.condColeValley, coleValleyNSString,
-                           self.condFinancialDistrict, financialDistrictNSString,
-                           self.condGlenPark, glenParkNSString,
-                           self.condHayesValley, hayesValleyNSString,
-                           self.condInnerRichmond, innerRichmondNSString,
-                           self.condLakeMerced, lakeMercedNSString,
-                           self.condMission, missionNSString,
-                           self.condNoeValley, noeValleyNSString,
-                           self.condNorthBeach, northBeachNSString,
-                           self.condOuterRichmond, outerRichmondNSString,
-                           self.condOuterSunset, outerSunsetNSString,
-                           self.condPotreroHill, potreroHillNSString,
-                           self.condPresidio, presidioNSString,
-                           self.condSOMA, somaNSString,
-                           self.condTwinPeaks, twinPeaksNSString,
-                           self.condWestPortal, westPortalNSString, nil] retain];
+    nameToCondViewDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          self.condBayview, bayviewNSString,
+                          self.condCastro, castroNSString,
+                          self.condColeValley, coleValleyNSString,
+                          self.condFinancialDistrict, financialDistrictNSString,
+                          self.condGlenPark, glenParkNSString,
+                          self.condHayesValley, hayesValleyNSString,
+                          self.condInnerRichmond, innerRichmondNSString,
+                          self.condLakeMerced, lakeMercedNSString,
+                          self.condMission, missionNSString,
+                          self.condNoeValley, noeValleyNSString,
+                          self.condNorthBeach, northBeachNSString,
+                          self.condOuterRichmond, outerRichmondNSString,
+                          self.condOuterSunset, outerSunsetNSString,
+                          self.condPotreroHill, potreroHillNSString,
+                          self.condPresidio, presidioNSString,
+                          self.condSOMA, somaNSString,
+                          self.condTwinPeaks, twinPeaksNSString,
+                          self.condWestPortal, westPortalNSString, nil];
                           
-    nameToTempViewDict = [[NSDictionary dictionaryWithObjectsAndKeys:
-                           self.tempBayview, bayviewNSString,
-                           self.tempCastro, castroNSString,
-                           self.tempColeValley, coleValleyNSString,
-                           self.tempFinancialDistrict, financialDistrictNSString,
-                           self.tempGlenPark, glenParkNSString,
-                           self.tempHayesValley, hayesValleyNSString,
-                           self.tempInnerRichmond, innerRichmondNSString,
-                           self.tempLakeMerced, lakeMercedNSString,
-                           self.tempMission, missionNSString,
-                           self.tempNoeValley, noeValleyNSString,
-                           self.tempNorthBeach, northBeachNSString,
-                           self.tempOuterRichmond, outerRichmondNSString,
-                           self.tempOuterSunset, outerSunsetNSString,
-                           self.tempPotreroHill, potreroHillNSString,
-                           self.tempPresidio, presidioNSString,
-                           self.tempSOMA, somaNSString,
-                           self.tempTwinPeaks, twinPeaksNSString,
-                           self.tempWestPortal, westPortalNSString, nil] retain];
+    nameToTempViewDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          self.tempBayview, bayviewNSString,
+                          self.tempCastro, castroNSString,
+                          self.tempColeValley, coleValleyNSString,
+                          self.tempFinancialDistrict, financialDistrictNSString,
+                          self.tempGlenPark, glenParkNSString,
+                          self.tempHayesValley, hayesValleyNSString,
+                          self.tempInnerRichmond, innerRichmondNSString,
+                          self.tempLakeMerced, lakeMercedNSString,
+                          self.tempMission, missionNSString,
+                          self.tempNoeValley, noeValleyNSString,
+                          self.tempNorthBeach, northBeachNSString,
+                          self.tempOuterRichmond, outerRichmondNSString,
+                          self.tempOuterSunset, outerSunsetNSString,
+                          self.tempPotreroHill, potreroHillNSString,
+                          self.tempPresidio, presidioNSString,
+                          self.tempSOMA, somaNSString,
+                          self.tempTwinPeaks, twinPeaksNSString,
+                          self.tempWestPortal, westPortalNSString, nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -182,10 +177,7 @@
     
     self.refreshButton = nil;
     
-    [nameToTempViewDict release];
     nameToTempViewDict = nil;
-
-    [nameToCondViewDict release];
     nameToCondViewDict = nil;
 }
 
@@ -269,7 +261,7 @@
             return;
         }
         
-        NeighborhoodViewController *vc = [[[NeighborhoodViewController alloc] init] autorelease];
+        NeighborhoodViewController *vc = [[NeighborhoodViewController alloc] init];
         
         vc.neighborhoodName = neighborhoodName;
         vc.weatherDataModel = weatherDataModel;
@@ -302,9 +294,7 @@
 		
 		colorToNeighborhoodHitTestDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
 		if (colorToNeighborhoodHitTestDict == nil) return nil;
-		
-		[colorToNeighborhoodHitTestDict retain];
-	}
+    }
 	return colorToNeighborhoodHitTestDict;
 }
 

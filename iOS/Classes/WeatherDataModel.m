@@ -18,10 +18,7 @@
 @synthesize pathToWeatherDataPlist, weatherDataConnectionDelegate, weatherDict;
 
 - (void)dealloc {
-	[pathToWeatherDataPlist release];
     self.weatherDict = nil;
-    
-    [super dealloc];
 }
 
 - (id)init {
@@ -43,15 +40,14 @@
 		// Retrive ~/Documents directory
 		NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 		pathToWeatherDataPlist = [rootPath stringByAppendingPathComponent:@"WeatherData.plist"];
-		[pathToWeatherDataPlist retain];
-	}	
+	}
 	return pathToWeatherDataPlist;
 }
 
 - (void)releaseNetworkInstanceVariables
 {
-	[myConnection release]; myConnection = nil;
-	[receivedData release]; receivedData = nil;
+    myConnection = nil;
+    receivedData = nil;
 }
 
 - (void)retrieveWeatherDataFromServer
@@ -72,9 +68,9 @@
 	app.networkActivityIndicatorVisible = YES; 
 
 	// create the connection with the request and start loading the data
-	myConnection=[[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+	myConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
 	if (myConnection) {
-		receivedData = [[NSMutableData data] retain];
+		receivedData = [NSMutableData data];
 	} else {
 		DLog(@"NSURLConnection could not be initialized in retrieveWeatherDataFromServer");
 	}
@@ -99,7 +95,7 @@
 	UIApplication *app = [UIApplication sharedApplication]; 
 	app.networkActivityIndicatorVisible = NO; 
 
-	NSString *stringFromServer = [[[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding] autorelease];
+	NSString *stringFromServer = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
 	if (stringFromServer == nil)
 	{
 		DLog(@"Could not init NSString with network data using initWithData: encoding:.");

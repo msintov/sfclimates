@@ -30,8 +30,6 @@
     self.neighborhoodName = nil;
     self.dictOfCurrentWeatherForNeighborhood = nil;
     self.arrayOfForecastsForNeighborhood = nil;
-
-    [super dealloc];
 }
 
 - (void)refreshInstanceData

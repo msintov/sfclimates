@@ -17,6 +17,7 @@
 
 @property(nonatomic,retain) WeatherDataModel*           weatherDataModel;
 @property(atomic,retain) NSDictionary*                  sections;
+@property(nonatomic, retain) IBOutlet UITableView*      cityTableView;
 @property(nonatomic, assign) IBOutlet UITableViewCell*  cityTableViewCell;
 @property(nonatomic, retain) id<ShowSettings>           settingsDelegate;
 

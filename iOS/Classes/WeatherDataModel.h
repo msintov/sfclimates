@@ -21,7 +21,7 @@
 }
 
 @property (nonatomic, assign) id <WeatherDataConnectionDelegate> weatherDataConnectionDelegate;
-@property (nonatomic, retain) NSMutableDictionary *weatherDict;
+@property (nonatomic, retain) NSDictionary *weatherDict;
 
 - (void)retrieveWeatherDataFromServer;
 

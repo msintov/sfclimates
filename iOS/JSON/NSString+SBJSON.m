@@ -38,7 +38,6 @@
     id repr = [jsonParser fragmentWithString:self];    
     if (!repr)
         DLog(@"-JSONFragmentValue failed. Error trace is: %@", [jsonParser errorTrace]);
-    [jsonParser release];
     return repr;
 }
 
@@ -48,7 +47,6 @@
     id repr = [jsonParser objectWithString:self];
     if (!repr)
         DLog(@"-JSONValue failed. Error trace is: %@", [jsonParser errorTrace]);
-    [jsonParser release];
 	
     return repr;
 }

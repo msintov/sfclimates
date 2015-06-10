@@ -40,8 +40,6 @@
     self.weatherDataModel = nil;
 
 	[self invalidateTimer];
-	[window release];
-	[super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -56,14 +54,11 @@
     
     NSArray * viewControllers = [NSArray arrayWithObjects:cityViewController, cityTableViewController, nil];
     
-    [cityViewController release];
-    [cityTableViewController release];
+    self.navigationController = [[UINavigationController alloc] init];
     
-    self.navigationController = [[[UINavigationController alloc] init] autorelease];
-    
-    self.segmentsController = [[[SegmentsController alloc] initWithNavigationController:self.navigationController viewControllers:viewControllers] autorelease];
+    self.segmentsController = [[SegmentsController alloc] initWithNavigationController:self.navigationController viewControllers:viewControllers];
 
-    self.segmentedControl = [[[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Map", @"By Name", nil]] autorelease];
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Map", @"By Name", nil]];
     self.segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
 
     [self.segmentedControl addTarget:self.segmentsController
@@ -87,7 +82,7 @@
 - (WeatherDataModel*)weatherDataModel
 {
 	if (!weatherDataModel) {
-		weatherDataModel = [[[WeatherDataModel alloc] init] autorelease];
+		weatherDataModel = [[WeatherDataModel alloc] init];
 	}
 	return weatherDataModel;
 }
@@ -143,8 +138,6 @@
     SettingsViewController *vc = [[SettingsViewController alloc] init];
     
     [self.navigationController pushViewController:vc animated:YES];
-    
-    [vc release];
 }
 
 - (void)invalidateTimer

@@ -50,30 +50,10 @@ static UtilityMethods *sharedUtilityMethodsInstance = nil;
 
 + (id)allocWithZone:(NSZone *)zone
 {
-    return [[self sharedInstance] retain];
+    return [self sharedInstance];
 }
 
 - (id)copyWithZone:(NSZone *)zone
-{
-    return self;
-}
-
-- (id)retain
-{
-    return self;
-}
-
-- (NSUInteger)retainCount
-{
-    return NSUIntegerMax;  //denotes an object that cannot be released
-}
-
-- (oneway void)release
-{
-    //do nothing
-}
-
-- (id)autorelease
 {
     return self;
 }
@@ -241,8 +221,6 @@ static UtilityMethods *sharedUtilityMethodsInstance = nil;
 		
 		conditionImageMappingDict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
 		if (conditionImageMappingDict == nil) return nil;
-		
-		[conditionImageMappingDict retain];
 	}
 	return conditionImageMappingDict;
 }
@@ -285,14 +263,6 @@ static UtilityMethods *sharedUtilityMethodsInstance = nil;
 		DLog(@"makeTemperatureString: Caught %@: %@", [exception name], [exception reason]);
 	}
 	return temperatureString;
-}
-
-
-- (void)dealloc {
-    [dateFormatterForDate release];
-    [dateFormatterForDay release];
-	[conditionImageMappingDict release];
-	[super dealloc];
 }
 
 @end
