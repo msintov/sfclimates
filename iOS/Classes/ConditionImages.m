@@ -3,7 +3,7 @@
 //  sfmcs
 //
 //  Created by Michelle Sintov on 10/5/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2015 Baker Beach Software, LLC. All rights reserved.
 //
 
 #import "ConditionImages.h"

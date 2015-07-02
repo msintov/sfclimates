@@ -2,8 +2,7 @@
 //  Observation.m
 //  sfmcs
 //
-//  Created by Gary Grossman on 1/17/15.
-//
+//  Copyright 2015 Baker Beach Software, LLC. All rights reserved.
 //
 
 #import "Observation.h"

@@ -2,8 +2,8 @@
 //  Neighborhood.h
 //  sfmcs
 //
-//  Created by Gary Grossman on 1/17/15.
 //
+//  Copyright 2015 Baker Beach Software, LLC. All rights reserved.
 //
 
 #ifndef sfmcs_Neighborhood_h

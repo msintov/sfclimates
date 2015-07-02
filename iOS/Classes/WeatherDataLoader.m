@@ -2,7 +2,7 @@
 //  WeatherDataLoader.m
 //  sfmcs
 //
-//
+//  Copyright 2015 Baker Beach Software, LLC. All rights reserved.
 //
 
 #import "WeatherDataLoader.h"

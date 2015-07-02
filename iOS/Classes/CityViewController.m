@@ -3,7 +3,7 @@
 //  sfmcs
 //
 //  Created by Michelle Sintov on 9/16/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Copyright 2015 Baker Beach Software, LLC. All rights reserved.
 //
 
 #import "CityViewController.h"

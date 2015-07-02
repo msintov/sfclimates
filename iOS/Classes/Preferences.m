@@ -2,7 +2,7 @@
 //  Preferences.m
 //  sfmcs
 //
-//
+//  Copyright 2015 Baker Beach Software, LLC. All rights reserved.
 //
 
 #import "Preferences.h"
